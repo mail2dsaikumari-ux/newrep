@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parallel Async Requests</title>
+</head>
+<body>
+
+    <h2>Parallel API Requests (Promise.all)</h2>
+
+    <button id="loadData">Load Data</button>
+
+    <div id="output"></div>
+
+    <script>
+        const button = document.getElementById("loadData");
+        const output = document.getElementById("output");
+
+        button.addEventListener("click", function() {
+
+            output.innerHTML = "Loading...";
+            
+            const userRequest = fetch("https://randomuser.me/api/");
+            const dogRequest = fetch("https://dog.ceo/api/breeds/image/random");
+
+            
+            Promise.all([userRequest, dogRequest])
+                .then(function(responses) {
+                    
+                    return Promise.all([
+                        responses[0].json(),
+                        responses[1].json()
+                    ]);
+                })
+                .then(function(data) {
+
+                    const userData = data[0];
+                    const dogData = data[1];
+
+                    const name = userData.results[0].name.first;
+                    const email = userData.results[0].email;
+                    const dogImage = dogData.message;
+
+                    
+                    output.innerHTML = `
+                        <h3>User Info</h3>
+                        <p>Name: ${name}</p>
+                        <p>Email: ${email}</p>
+
+                        <h3>Random Dog Image</h3>
+                        <img src="${dogImage}" width="300">
+                    `;
+                })
+                .catch(function(error) {                    
+                    output.innerHTML = "Something went wrong!";
+                    console.error("Error:", error);
+                });
+        });
+    </script>
+
+</body>
+</html>

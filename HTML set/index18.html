@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Asynchronous JavaScript</title>
+</head>
+<body>
+
+  <h2>welcome to Asynchronous JavaScript</h2>
+
+  <script>
+
+    // CALLBACK:- A callback is a function passed into another function.
+
+    function greet(name, callback) {
+      console.log("Hello " + name);
+
+      callback();
+    }
+
+    function done() {
+      console.log("Callback Completed");
+    }
+
+    greet("Sai", done);
+
+    // setTimeout Example:-setTimeout runs later after 2 seconds.//    JavaScript does not wait.
+
+    console.log("Start");
+
+    setTimeout(function () {
+      console.log("Inside Timeout");
+    }, 2000);
+
+    console.log("End");
+
+    // PROMISE:- A Promise is used to handle asynchronous operations.
+    // Promise has 3 states:
+    // Pending
+    // Resolved
+    // Rejected
+
+    let promise = new Promise(function (resolve, reject) {
+
+      let success = true;
+
+      if (success) {
+        resolve("Promise Success");
+      } else {
+        reject("Promise Failed");
+      }
+
+    });
+
+    promise
+      .then(function (result) {
+        console.log(result);
+      })
+
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // ASYNC & AWAIT:- async and await make promises easier to write.
+    // async → makes a function asynchronous
+    // await → waits for promise result
+
+    function getData() {
+
+      return new Promise(function (resolve) {
+
+        setTimeout(function () {
+          resolve("Data Received");
+        }, 2000);
+
+      });
+
+    }
+
+    async function displayData() {
+
+      console.log("Loading...");
+
+      let result = await getData();
+
+      console.log(result);
+
+      console.log("Finished");
+
+    }
+
+    displayData();
+
+  </script>
+
+</body>
+</html>

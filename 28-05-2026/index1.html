@@ -1,0 +1,125 @@
+<!-- Create a file upload UI using React forms, JavaScript File API, CSS styling, and semantic HTML tags. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Upload UI</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    /* Upload Box */
+    .box{
+      background:white;
+      padding:30px;
+      width:350px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    h1{
+      margin-bottom:20px;
+    }
+
+    input{
+      margin-top:20px;
+    }
+
+    button{
+      padding:10px 20px;
+      margin-top:20px;
+      border:none;
+      background:blue;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    #result{
+      margin-top:20px;
+      color:green;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main>
+
+    <section class="box">
+
+      <h1>File Upload UI</h1>
+
+      <!-- File Input -->
+      <input
+        type="file"
+        id="fileInput"
+      >
+
+      <br>
+
+      <!-- Button -->
+      <button onclick="uploadFile()">
+
+        Upload File
+
+      </button>
+
+      <!-- Result -->
+      <article id="result">
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Upload Function
+    function uploadFile(){
+
+      let file =
+      document.getElementById("fileInput")
+      .files[0];
+
+      // Check File
+      if(file){
+
+        document.getElementById("result")
+        .innerText =
+
+        "File Uploaded : " +
+        file.name;
+
+      }
+
+      else{
+
+        document.getElementById("result")
+        .innerText =
+
+        "Please Select File";
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

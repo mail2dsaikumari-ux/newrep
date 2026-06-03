@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DOM App</title>
+</head>
+
+<body>
+
+  <!-- Heading -->
+  <h1 id="heading">DOM Manipulation</h1>
+
+  <!-- Buttons -->
+  <button id="addBtn">Add Item</button>
+
+  <button id="replaceBtn">Replace Item</button>
+
+  <!-- List -->
+  <ul id="list">
+
+    <li>Item 1</li>
+
+    <li>Item 2</li>
+
+  </ul>
+
+  <script>
+
+    /* Selecting Elements */
+    const heading = document.getElementById("heading");
+
+    const list = document.getElementById("list");
+
+    const addBtn = document.getElementById("addBtn");
+
+    const replaceBtn = document.getElementById("replaceBtn");
+
+
+    /* DOM Property */
+    heading.style.color = "blue";
+
+
+    /* Add Event */
+    addBtn.addEventListener("click", () => {
+
+      /* Create Element */
+      const li = document.createElement("li");
+
+      li.innerText = "New Item";
+
+      /* Add Element */
+      list.appendChild(li);
+
+    });
+
+
+    /* Replace Element */
+    replaceBtn.addEventListener("click", () => {
+
+      /* New Element */
+      const newLi = document.createElement("li");
+
+      newLi.innerText = "Replaced Item";
+
+      /* Old Element */
+      const firstItem = list.firstElementChild;
+
+      /* Replace */
+      list.replaceChild(newLi, firstItem);
+
+    });
+
+
+    /* Traversing DOM */
+    console.log(list.parentElement);
+
+    console.log(list.children);
+
+  </script>
+
+</body>
+</html>

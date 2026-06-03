@@ -1,0 +1,117 @@
+<!-- Build a random quote generator using React Hooks, JavaScript array methods, CSS styling, and button events. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Quote Generator</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    /* Box */
+    .box{
+      background:white;
+      padding:30px;
+      width:400px;
+      text-align:center;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    h1{
+      margin-bottom:20px;
+    }
+
+    /* Quote */
+    #quote{
+      font-size:20px;
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    button{
+      padding:10px 20px;
+      border:none;
+      background:blue;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main>
+
+    <section class="box">
+
+      <h1>Random Quote Generator</h1>
+
+      <!-- Quote -->
+      <article id="quote">
+
+        Click Button for Quote
+
+      </article>
+
+      <!-- Button -->
+      <button onclick="generateQuote()">
+
+        Generate Quote
+
+      </button>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Quotes Array
+    let quotes = [
+
+      "Dream Big",
+
+      "Never Give Up",
+
+      "Practice Makes Perfect",
+
+      "Success Needs Hard Work",
+
+      "Believe In Yourself"
+
+    ];
+
+    // Generate Quote
+    function generateQuote(){
+
+      // Random Index
+      let random =
+      Math.floor(
+        Math.random() * quotes.length
+      );
+
+      // Display Quote
+      document.getElementById("quote")
+      .innerText =
+      quotes[random];
+
+    }
+
+  </script>
+
+</body>
+</html>

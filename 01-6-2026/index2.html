@@ -1,0 +1,118 @@
+<!-- Create a Profile Card Generator using Form Inputs,CSS Styling, and Semantic HTML. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Card Generator</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      padding:20px;
+    }
+
+    .container{
+      max-width:500px;
+      margin:auto;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin-top:10px;
+      box-sizing:border-box;
+    }
+
+    button{
+      padding:10px 20px;
+      margin-top:15px;
+      background:blue;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      margin-top:20px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    img{
+      width:120px;
+      border-radius:50%;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h1>Profile Card Generator</h1>
+
+    <input
+      type="text"
+      id="name"
+      placeholder="Enter Name"
+    >
+
+    <input
+      type="text"
+      id="role"
+      placeholder="Enter Role"
+    >
+
+    <button onclick="generateCard()">
+
+      Generate Card
+
+    </button>
+
+    <section id="profile">
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Generate Card
+    function generateCard(){
+
+      let name =
+      document.getElementById("name").value;
+
+      let role =
+      document.getElementById("role").value;
+
+      document.getElementById("profile")
+      .innerHTML = `
+
+        <article class="card">
+
+          <img
+          src="profilephoto.jpg">
+
+          <h2>${name}</h2>
+
+          <p>${role}</p>
+
+        </article>
+
+      `;
+
+    }
+
+  </script>
+
+</body>
+</html>

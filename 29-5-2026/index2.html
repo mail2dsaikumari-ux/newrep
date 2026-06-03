@@ -1,0 +1,131 @@
+<!-- Build a searchable product list using React Hooks, JavaScript filter method, CSS Flexbox, and semantic HTML. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Product</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f2f2f2;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin-bottom:20px;
+      box-sizing:border-box;
+    }
+
+    /* Flexbox */
+    .products{
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      justify-content:center;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      width:200px;
+      text-align:center;
+      border-radius:10px;
+      box-shadow:0px 0px 5px gray;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+
+    <h1>Search Product List</h1>
+
+    <input
+      type="text"
+      id="search"
+      placeholder="Search Product"
+      onkeyup="searchProduct()"
+    >
+
+    <section
+      class="products"
+      id="products">
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Product Array
+    let products = [
+
+      "Laptop",
+      "Mobile",
+      "Watch",
+      "Headphones",
+      "Keyboard"
+
+    ];
+
+    displayProducts(products);
+
+    // Display Products
+    function displayProducts(data){
+
+      let productDiv =
+      document.getElementById("products");
+
+      productDiv.innerHTML = "";
+
+      data.forEach(function(product){
+
+        productDiv.innerHTML += `
+
+          <article class="card">
+
+            <h3>${product}</h3>
+
+          </article>
+
+        `;
+
+      });
+
+    }
+
+    // Search Product
+    function searchProduct(){
+
+      let value =
+      document.getElementById("search")
+      .value.toLowerCase();
+
+      let filtered =
+      products.filter(function(product){
+
+        return product
+        .toLowerCase()
+        .includes(value);
+
+      });
+
+      displayProducts(filtered);
+
+    }
+
+  </script>
+
+</body>
+</html>

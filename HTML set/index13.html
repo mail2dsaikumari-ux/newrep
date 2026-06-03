@@ -1,0 +1,122 @@
+<!-- 1.Build a JavaScript Dynamic List App
+Custom map()
+Array Prototype
+Object Comparison
+Object Difference
+Event Delegation
+DOM Manipulation
+Dynamic List
+Event Handling -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Dynamic List App</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Dynamic List App</h1>
+
+  <input type="text" id="itemInput" placeholder="Enter item">
+  <button id="addBtn">Add Item</button>
+
+  <ul id="list"></ul>
+
+  <script>
+
+    /* Custom myMap */
+    Array.prototype.myMap = function(callback) {
+
+      let result = [];
+
+      for (let i = 0; i < this.length; i++) {
+        result.push(callback(this[i], i, this));
+      }
+
+      return result;
+    };
+
+    const numbers = [1, 2, 3];
+
+    const doubled = numbers.myMap(num => num * 2);
+
+    console.log("myMap Output:", doubled);
+
+    /* Object Difference */
+    function objectDiff(obj1, obj2) {
+
+      let diff = {};
+
+      for (let key in obj2) {
+
+        if (obj1[key] !== obj2[key]) {
+          diff[key] = obj2[key];
+        }
+
+      }
+
+      return diff;
+    }
+
+    const oldObj = {
+      name: "Sai",
+      age: 21
+    };
+
+    const newObj = {
+      name: "Sai",
+      age: 22
+    };
+
+    console.log("Object Difference:", objectDiff(oldObj, newObj));
+
+    /* Event Delegation */
+    const list = document.getElementById("list");
+    const input = document.getElementById("itemInput");
+    const addBtn = document.getElementById("addBtn");
+
+    /* Add Item */
+    addBtn.addEventListener("click", () => {
+
+      const li = document.createElement("li");
+
+      li.innerHTML = `
+        ${input.value}
+        <button class="delete">Delete</button>
+      `;
+
+      list.appendChild(li);
+
+      input.value = "";
+
+    });
+
+    /* Single Parent Event Listener */
+    list.addEventListener("click", (e) => {
+
+      if (e.target.classList.contains("delete")) {
+        e.target.parentElement.remove();
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

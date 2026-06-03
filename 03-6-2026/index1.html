@@ -1,0 +1,121 @@
+<!-- 2.Create a Memory Matching Game using JavaScript Arrays, Event Handling, and CSS Styling. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Memory Game</title>
+
+<style>
+
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#f2f2f2;
+}
+
+.game{
+  display:grid;
+  grid-template-columns:repeat(4,80px);
+  gap:10px;
+  justify-content:center;
+  margin-top:30px;
+}
+
+.card{
+  width:80px;
+  height:80px;
+  background:blue;
+  color:white;
+  font-size:30px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Memory Matching Game</h1>
+
+<div class="game" id="game"></div>
+
+<script>
+
+let cards =
+["A","B","C","D","E","F","G","H"];
+
+cards.sort(() =>
+Math.random()-0.5);
+
+let firstCard = null;
+let secondCard = null;
+
+let game =
+document.getElementById("game");
+
+cards.forEach(function(value){
+
+  let div =
+  document.createElement("div");
+
+  div.classList.add("card");
+
+  div.innerText="?";
+
+  div.onclick=function(){
+
+    div.innerText=value;
+
+    if(firstCard===null){
+
+      firstCard=
+      {element:div,value:value};
+
+    }
+
+    else{
+
+      secondCard=
+      {element:div,value:value};
+
+      if(
+      firstCard.value !==
+      secondCard.value
+      ){
+
+        setTimeout(function(){
+
+          firstCard.element.innerText="?";
+          secondCard.element.innerText="?";
+
+          firstCard=null;
+          secondCard=null;
+
+        },500);
+
+      }
+
+      else{
+
+        firstCard=null;
+        secondCard=null;
+
+      }
+
+    }
+
+  };
+
+  game.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>

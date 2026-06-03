@@ -1,0 +1,227 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product Listing</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+background:#333;
+color:white;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+.cart{
+font-size:20px;
+}
+
+.container{
+display:flex;
+}
+
+.sidebar{
+width:250px;
+background:#f4f4f4;
+padding:20px;
+}
+
+.products{
+flex:1;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+padding:20px;
+}
+
+.product{
+border:1px solid #ccc;
+padding:15px;
+text-align:center;
+}
+
+.product img{
+width:100%;
+}
+
+.product:hover{
+transform:scale(1.05);
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+button{
+background:#007bff;
+color:white;
+border:none;
+padding:10px;
+margin-top:10px;
+cursor:pointer;
+}
+
+.toggle-btn{
+display:none;
+margin:10px;
+padding:10px;
+}
+
+@media(max-width:992px){
+
+.products{
+grid-template-columns:repeat(2,1fr);
+}
+
+.sidebar{
+position:absolute;
+left:-260px;
+top:60px;
+height:100%;
+transition:0.3s;
+}
+
+.sidebar.active{
+left:0;
+}
+
+.toggle-btn{
+display:block;
+}
+
+}
+
+@media(max-width:600px){
+
+.products{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">MyShop</div>
+<div class="cart">🛒 Cart</div>
+</header>
+
+<button class="toggle-btn" onclick="toggleSidebar()">☰ Filters</button>
+
+<div class="container">
+
+<aside class="sidebar" id="sidebar">
+
+<h3>Price Range</h3>
+<input type="range" min="0" max="500">
+
+<h3>Category</h3>
+<label><input type="checkbox"> Stationery</label><br>
+<label><input type="checkbox"> Books</label><br>
+<label><input type="checkbox"> Bags</label>
+
+<h3>Rating</h3>
+<select>
+<option>4★ & above</option>
+<option>3★ & above</option>
+<option>2★ & above</option>
+</select>
+
+</aside>
+
+<main class="products">
+
+<div class="product">
+<img src="https://via.placeholder.com/200">
+<h4>Pen</h4>
+<p>Rs10</p>
+<p>⭐⭐⭐⭐</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/200">
+<h4>Pencil</h4>
+<p>Rs5</p>
+<p>⭐⭐⭐⭐</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/200">
+<h4>Notebook</h4>
+<p>Rs40</p>
+<p>⭐⭐⭐⭐⭐</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/200">
+<h4>Eraser</h4>
+<p>Rs3</p>
+<p>⭐⭐⭐</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/200">
+<h4>Sharpener</h4>
+<p>Rs8</p>
+<p>⭐⭐⭐⭐</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/200">
+<h4>School Bag</h4>
+<p>Rs300</p>
+<p>⭐⭐⭐⭐⭐</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/200">
+<h4>Color Pencils</h4>
+<p>Rs120</p>
+<p>⭐⭐⭐⭐</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/200">
+<h4>Drawing Book</h4>
+<p>Rs70</p>
+<p>⭐⭐⭐⭐</p>
+<button>Add to Cart</button>
+</div>
+
+</main>
+
+</div>
+
+<script>
+
+function toggleSidebar(){
+document.getElementById("sidebar").classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html> -->

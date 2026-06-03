@@ -1,0 +1,131 @@
+<!-- Create a password generator using React state, JavaScript string methods, CSS styling, and semantic HTML tags. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Generator</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    /* Container */
+    .container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    /* Box */
+    .box{
+      background:white;
+      padding:30px;
+      width:350px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    h1{
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    /* Input */
+    input{
+      width:100%;
+      padding:10px;
+      margin-top:15px;
+      box-sizing:border-box;
+      font-size:18px;
+      text-align:center;
+    }
+
+    /* Button */
+    button{
+      padding:10px 20px;
+      margin-top:20px;
+      border:none;
+      background:blue;
+      color:white;
+      cursor:pointer;
+      border-radius:5px;
+      font-size:16px;
+    }
+
+    button:hover{
+      background:#0077ff;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <section class="box">
+
+      <!-- Heading -->
+      <h1>Password Generator</h1>
+
+      <!-- Password Display -->
+      <input
+        type="text"
+        id="password"
+        placeholder="Generated Password"
+        readonly
+      >
+
+      <!-- Button -->
+      <button onclick="generatePassword()">
+        Generate Password
+      </button>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Generate Password
+    function generatePassword(){
+
+      // Characters
+      let chars =
+    //   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$"
+        //  "!@#$%^&*123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        "SAIKIRAN@123";
+
+      // Empty Password
+      let password = "";
+
+      // Loop
+      for(let i = 0; i < 8; i++){
+
+        // Random Index
+        let randomIndex =
+        Math.floor(Math.random() * chars.length);
+
+        // Add Character
+        password += chars.charAt(randomIndex);
+
+      }
+
+      // Display Password
+      document.getElementById("password")
+      .value = password;
+
+    }
+
+  </script>
+
+</body>
+</html>

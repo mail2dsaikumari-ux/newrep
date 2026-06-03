@@ -1,0 +1,37 @@
+<!-- Web Storage = store data in browse  -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Storage</title>
+</head>
+<body>
+
+<h2>Web Storage</h2>
+
+<script>
+
+// Local Storage → stores data permanently (until manually removed)
+
+localStorage.setItem("name", "Sai");
+
+console.log(localStorage.getItem("name"));
+
+// Session Storage → stores data only for current tab/session
+
+sessionStorage.setItem("city", "Vizag");
+console.log(sessionStorage.getItem("city"));
+
+// Remove data
+
+localStorage.removeItem("name");
+sessionStorage.removeItem("city");
+
+// Clear all
+// localStorage.clear();
+// sessionStorage.clear();
+
+</script>
+
+</body>
+</html> 

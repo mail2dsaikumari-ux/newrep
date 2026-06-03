@@ -1,0 +1,102 @@
+<!-- create Array Operations App using HTML and JavaScript.
+Requirements:
+Add elements to array
+Remove elements from array
+Use map() to display items
+Use filter() to remove specific items
+Show array length
+Display updated array on screen -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array App</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Array Operations App</h1>
+
+  <input type="text" id="input" placeholder="Enter item">
+
+  <button onclick="addItem()">Add</button>
+
+  <button onclick="removeLast()">Remove Last</button>
+
+  <h3>Array Length: <span id="length">0</span></h3>
+
+  <ul id="list"></ul>
+
+  <script>
+
+    let items = [];
+
+    function displayItems() {
+
+      const list = document.getElementById("list");
+
+      list.innerHTML = "";
+
+      items.map((item, index) => {
+
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+          ${item}
+          <button onclick="deleteItem(${index})">
+            Delete
+          </button>
+        `;
+
+        list.appendChild(li);
+
+      });
+
+      document.getElementById("length").innerText = items.length;
+    }
+
+
+    function addItem() {
+
+      const input = document.getElementById("input");
+
+      if (!input.value) return;
+
+      items.push(input.value);
+
+      input.value = "";
+
+      displayItems();
+    }
+
+
+    function removeLast() {
+
+      items.pop();
+
+      displayItems();
+    }
+
+
+    function deleteItem(index) {
+
+      items = items.filter((_, i) => i !== index);
+
+      displayItems();
+    }
+
+  </script>
+
+</body>
+</html>

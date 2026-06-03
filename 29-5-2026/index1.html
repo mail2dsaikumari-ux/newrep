@@ -1,0 +1,152 @@
+<!-- Create a multi-step form using React state management, JavaScript event handling, and form validation. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multi Step Form</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    .container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .box{
+      background:white;
+      width:400px;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+      text-align:center;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin-top:15px;
+      box-sizing:border-box;
+    }
+
+    button{
+      padding:10px 20px;
+      margin-top:20px;
+      border:none;
+      background:blue;
+      color:white;
+      cursor:pointer;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <section class="box">
+
+      <h1>Multi Step Form</h1>
+
+      <!-- Step 1 -->
+      <div id="step1">
+
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter Name"
+        >
+
+        <button onclick="nextStep()">
+
+          Next
+
+        </button>
+
+      </div>
+
+      <!-- Step 2 -->
+      <div
+        id="step2"
+        style="display:none;">
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter Email"
+        >
+
+        <button onclick="submitForm()">
+
+          Submit
+
+        </button>
+
+      </div>
+
+      <article id="result">
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Next Step
+    function nextStep(){
+
+      let name =
+      document.getElementById("name").value;
+
+      // Validation
+      if(name === ""){
+
+        alert("Enter Name");
+
+        return;
+      }
+
+      document.getElementById("step1")
+      .style.display = "none";
+
+      document.getElementById("step2")
+      .style.display = "block";
+
+    }
+
+    // Submit Form
+    function submitForm(){
+
+      let email =
+      document.getElementById("email").value;
+
+      // Validation
+      if(email === ""){
+
+        alert("Enter Email");
+
+        return;
+      }
+
+      document.getElementById("result")
+      .innerText =
+      "Form Submitted Successfully";
+
+    }
+
+  </script>
+
+</body>
+</html>

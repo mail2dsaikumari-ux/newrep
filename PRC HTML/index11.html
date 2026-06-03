@@ -1,0 +1,51 @@
+<!-- Error Handling = catch errors and continue program -->
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Error Handling</title>
+</head>
+<body>
+
+<h2>Error Handling</h2>
+
+<script>
+
+// try/catch → handle errors without stopping program
+try {
+  let a = 10;
+  let b = c + 5; // c is not defined → error
+  console.log(a + b);
+} catch (error) {
+  console.log("Error caught:", error.message);
+}
+
+
+// Types of Errors
+
+// 1. Syntax Error → wrong code format
+// Example (will break if uncommented)
+/*
+let x = ;
+*/
+
+
+// 2. Type Error → wrong data type
+try {
+  let num = 10;
+  num.toUpperCase(); // number has no toUpperCase
+} catch (e) {
+  console.log("Type Error:", e.message);
+}
+
+
+// 3. Reference Error → variable not defined
+try {
+  console.log(y); // y not declared
+} catch (e) {
+  console.log("Reference Error:", e.message);
+}
+
+</script>
+
+</body>
+</html>

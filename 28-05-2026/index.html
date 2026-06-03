@@ -1,0 +1,158 @@
+<!-- Build a chat UI using React components, JavaScript events, CSS Flexbox, and responsive design. -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat UI</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    .container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    /* Chat Box */
+    .chat-box{
+      width:350px;
+      height:500px;
+      background:white;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* Chat Title */
+
+.title{
+  text-align:center;
+  background:blue;
+  color:white;
+  padding:15px;
+  margin:0;
+  border-radius:10px 10px 0 0;
+}
+
+    /* Messages */
+    .messages{
+      flex:1;
+      padding:15px;
+      overflow:auto;
+    }
+
+    /* Message */
+    .message{
+      background:blue;
+      color:white;
+      padding:10px;
+      border-radius:10px;
+      margin-bottom:10px;
+      width:fit-content;
+    }
+
+    /* Input Area */
+    .input-box{
+      display:flex;
+      padding:10px;
+      border-top:1px solid #ccc;
+    }
+
+    input{
+      flex:1;
+      padding:10px;
+    }
+
+    button{
+      padding:10px 20px;
+      border:none;
+      background:blue;
+      color:white;
+      cursor:pointer;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <section class="chat-box">
+
+<!-- Add this inside chat-box -->
+
+<h2 class="title">
+  Chat UI
+</h2>
+
+      <!-- Messages -->
+      <article
+        class="messages"
+        id="messages">
+
+      </article>
+
+      <!-- Input -->
+      <section class="input-box">
+
+        <input
+          type="text"
+          id="messageInput"
+          placeholder="Type Message"
+        >
+
+        <button onclick="sendMessage()">
+
+          Send
+
+        </button>
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Send Message
+    function sendMessage(){
+
+      let input =
+      document.getElementById("messageInput");
+
+      let messages =
+      document.getElementById("messages");
+
+      // Create Message
+      messages.innerHTML += `
+
+        <div class="message">
+
+          ${input.value}
+
+        </div>
+
+      `;
+
+      // Clear Input
+      input.value = "";
+
+    }
+
+  </script>
+
+</body>
+</html>

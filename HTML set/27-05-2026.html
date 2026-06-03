@@ -1,0 +1,146 @@
+<!-- Create a drag-and-drop task board using React state, JavaScript DOM events, CSS Grid, and semantic HTML.   -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Board</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    /* CSS Grid */
+    .board{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    /* Column */
+    .column{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+      min-height:300px;
+    }
+
+    h2{
+      text-align:center;
+    }
+
+    /* Task */
+    .task{
+      background:blue;
+      color:white;
+      padding:15px;
+      margin-top:10px;
+      border-radius:5px;
+      cursor:grab;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main>
+
+    <h1>Task Board</h1>
+
+    <!-- Board -->
+    <section class="board">
+
+      <!-- Todo -->
+      <article
+        class="column"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)">
+
+        <h2>Todo</h2>
+
+        <div
+          class="task"
+          draggable="true"
+          ondragstart="drag(event)"
+          id="task1">
+
+          Learn React
+
+        </div>
+
+      </article>
+
+      <!-- Progress -->
+      <article
+        class="column"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)">
+
+        <h2>In Progress</h2>
+
+      </article>
+
+      <!-- Done -->
+      <article
+        class="column"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)">
+
+        <h2>Done</h2>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Allow Drop
+    function allowDrop(event){
+
+      event.preventDefault();
+
+    }
+
+    // Drag
+    function drag(event){
+
+      event.dataTransfer.setData(
+        "text",
+        event.target.id
+      );
+
+    }
+
+    // Drop
+    function drop(event){
+
+      event.preventDefault();
+
+      let data =
+      event.dataTransfer.getData("text");
+
+      event.target.appendChild(
+        document.getElementById(data)
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>

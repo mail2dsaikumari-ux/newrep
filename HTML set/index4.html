@@ -1,0 +1,65 @@
+<!-- Create a webpage that:
+
+Has a div with class red (red background, white text)
+Has an element with id="head" and apply background using:
+inline CSS
+internal CSS
+external CSS
+Create a class one and apply it to multiple elements
+Apply multiple classes to a single element -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Concepts</title>
+
+    <!-- Internal CSS -->
+    <style>
+        #head {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+        }
+
+        .red {
+            background-color: red;
+            color: white;
+            padding: 10px;
+        }
+
+        .one {
+            border: 2px solid black;
+            margin: 10px;
+        }
+
+        .two {
+            font-size: 20px;
+        }
+    </style>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Inline CSS (highest priority) -->
+    <div id="head" style="background-color: orange;">
+        This is HEAD element
+    </div>
+
+    <!-- Class red -->
+    <div class="red">
+        This is red div
+    </div>
+
+    <!-- Same class on multiple elements -->
+    <p class="one">Paragraph 1</p>
+    <p class="one">Paragraph 2</p>
+
+    <!-- Multiple classes on same element -->
+    <div class="one two">
+        Multiple classes applied (one + two)
+    </div>
+
+</body>
+</html>

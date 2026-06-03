@@ -1,0 +1,82 @@
+<!-- // Event Handling → handling user actions like click, input, scroll -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Handling</title>
+</head>
+<body>
+
+<h2>Event Handling</h2>
+
+<div id="parent" style="padding:20px; background:lightblue;">
+  Parent
+  <button id="child">Click Me</button>
+</div>
+
+<ul id="list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+
+<input type="text" id="input" placeholder="Type here..." />
+
+<script>
+
+// Event Bubbling → child to parent
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("Parent Click");
+});
+
+// Event Capturing → parent to child
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("Capturing Parent");
+}, true);
+
+// Event Delegation → parent handles child events
+document.getElementById("list").addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    console.log("Clicked:", e.target.textContent);
+  }
+});
+
+// Event performance
+
+// Normal Event → runs every time
+document.getElementById("child").addEventListener("click", () => {
+  console.log("Button Clicked");
+});
+
+// Throttling → runs once in time gap
+function throttle(func, delay) {
+  let last = 0;
+  return function () {
+    let now = Date.now();
+    if (now - last > delay) {
+      func();
+      last = now;
+    }
+  };
+}
+
+window.addEventListener("scroll", throttle(() => {
+  console.log("Scroll event");
+}, 1000));
+
+// Debouncing → runs after user stops action
+function debounce(func, delay) {
+  let timer;
+  return function () {
+    clearTimeout(timer);
+    timer = setTimeout(func, delay);
+  };
+}
+
+document.getElementById("input").addEventListener("input", debounce(() => {
+  console.log("Typing stopped");
+}, 1000));
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!-- Create a notes app using React Hooks, local storage, JavaScript CRUD operations, and responsive CSS. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notes App</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    .container{
+      max-width:500px;
+      margin:auto;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    textarea{
+      width:100%;
+      height:100px;
+      padding:10px;
+      box-sizing:border-box;
+    }
+
+    button{
+      padding:10px 20px;
+      margin-top:10px;
+      border:none;
+      background:blue;
+      color:white;
+      cursor:pointer;
+      border-radius:5px;
+    }
+
+    /* Notes */
+    .note{
+      background:white;
+      padding:15px;
+      margin-top:15px;
+      border-radius:10px;
+      box-shadow:0px 0px 5px gray;
+    }
+
+    /* Responsive */
+    @media(max-width:600px){
+
+      .container{
+        width:90%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <h1>Notes App</h1>
+
+    <!-- Input -->
+    <textarea
+      id="noteInput"
+      placeholder="Write Notes">
+    </textarea>
+
+    <!-- Button -->
+    <button onclick="addNote()">
+      Add Note
+    </button>
+
+    <!-- Notes -->
+    <section id="notes">
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Local Storage Data
+    let notes =
+    JSON.parse(localStorage.getItem("notes"))
+    || [];
+
+    // Display Notes
+    function showNotes(){
+
+      let notesDiv =
+      document.getElementById("notes");
+
+      notesDiv.innerHTML = "";
+
+      // map()
+      notes.map(function(note,index){
+
+        notesDiv.innerHTML += `
+
+          <article class="note">
+
+            <p>${note}</p>
+
+            <button
+            onclick="deleteNote(${index})">
+
+              Delete
+
+            </button>
+
+          </article>
+
+        `;
+
+      });
+
+    }
+
+    // Add Note
+    function addNote(){
+
+      let input =
+      document.getElementById("noteInput");
+
+      // Add
+      notes.push(input.value);
+
+      // Save
+      localStorage.setItem(
+        "notes",
+        JSON.stringify(notes)
+      );
+
+      // Clear Input
+      input.value = "";
+
+      // Refresh
+      showNotes();
+
+    }
+
+    // Delete Note
+    function deleteNote(index){
+
+      // Remove
+      notes.splice(index,1);
+
+      // Save
+      localStorage.setItem(
+        "notes",
+        JSON.stringify(notes)
+      );
+
+      // Refresh
+      showNotes();
+
+    }
+
+    // First Load
+    showNotes();
+
+  </script>
+
+</body>
+</html>

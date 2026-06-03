@@ -1,0 +1,81 @@
+<!-- Create a webpage that:
+Has a dark blue navigation bar with light-colored items
+Changes main container background to dark red
+Creates a div with background image and fixed width & height
+Creates a vertical box with non-scrolling (fixed) background
+Uses background shorthand property -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 2 Output</title>
+
+    <style>
+        /* Navbar */
+        nav {
+            background-color: darkblue;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        /* Main container */
+        .container {
+            background-color: darkred;
+            color: white;
+            padding: 20px;
+        }
+
+        /* Box 1 */
+        .bg-image {
+            width: 300px;
+            height: 200px;
+            background-color: yellow;
+            margin: 20px 0;
+        }
+
+        /* Box 2 */
+        .fixed-box {
+            height: 300px;
+            background-color: green;
+            color: white;
+            padding: 20px;
+        }
+
+        /* Box 3 */
+        .shorthand {
+            height: 150px;
+            background: purple;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Container -->
+    <div class="container">
+        This is main container (dark red)
+    </div>
+
+    <!-- Boxes -->
+    <div class="bg-image">Yellow Box</div>
+
+    <div class="fixed-box">Green Box</div>
+
+    <div class="shorthand">Purple Box</div>
+
+</body>
+</html>

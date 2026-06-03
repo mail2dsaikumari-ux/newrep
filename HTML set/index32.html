@@ -1,0 +1,134 @@
+<!-- Build a BMI calculator using React forms, JavaScript calculations, CSS styling, and semantic HTML tags. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI Calculator</title>
+ <!-- Body Mass Index -->
+<!-- It is used to check whether a person's weight is healthy according to height. -->
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    /* Container */
+    .container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    /* Box */
+    .box{
+      background:white;
+      padding:30px;
+      width:300px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    h1{
+      margin-bottom:20px;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin-top:10px;
+      box-sizing:border-box;
+    }
+
+    button{
+      padding:10px 20px;
+      margin-top:15px;
+      border:none;
+      background:blue;
+      color:white;
+      cursor:pointer;
+      border-radius:5px;
+    }
+
+    #result{
+      margin-top:20px;
+      font-size:20px;
+      color:green;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <section class="box">
+
+      <h1>BMI Calculator</h1>
+
+      <!-- Height -->
+      <input
+        type="number"
+        id="height"
+        placeholder="Enter Height in meters"
+      >
+
+      <!-- Weight -->
+      <input
+        type="number"
+        id="weight"
+        placeholder="Enter Weight in kg"
+      >
+
+      <!-- Button -->
+      <button onclick="calculateBMI()">
+        Calculate BMI
+      </button>
+
+      <!-- Result -->
+      <article id="result">
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Calculate BMI
+    function calculateBMI(){
+
+      // Values
+      let height =
+      document.getElementById("height").value;
+
+      let weight =
+      document.getElementById("weight").value;
+
+      // BMI Formula
+      let bmi =
+      weight / (height * height);
+
+      // Display Result
+      document.getElementById("result")
+      .innerText =
+      "BMI : " + bmi.toFixed(2);
+    }
+    // example:-
+    // Weight = 50 kg
+    // Height = 1.6 m
+    // BMI = 50 / (1.6 × 1.6)
+    // BMI = 19.53
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!-- Create a webpage that:
+
+Creates a layout using float
+Recreates the same layout using flexbox
+Builds a navbar using flexbox (logo + links)
+Creates a section with background image
+Displays multiple boxes (like cards) using flexbox -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 6 Final</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: black;
+            color: white;
+            padding: 10px;
+        }
+
+        .nav-links a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        /* Float Layout */
+        .float-container {
+            margin: 20px;
+        }
+
+        .float-box {
+            width: 45%;
+            height: 150px;
+            float: left;
+            margin: 10px;
+            background: lightblue;
+            text-align: center;
+            line-height: 150px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        /* Background Image (HTML style used) */
+        .bg-section {
+            height: 200px;
+            margin: 20px;
+            background-image: url('https://picsum.photos/800/200');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        /* Flexbox Cards */
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .card {
+            width: 150px;
+            height: 120px;
+            background: lightgray;
+            text-align: center;
+            line-height: 120px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div>Logo</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <!-- Float Layout -->
+    <div class="float-container">
+        <div class="float-box">Div 1</div>
+        <div class="float-box">Div 2</div>
+        <div class="clear"></div>
+    </div>
+
+    <!-- Background Image Section -->
+    <div class="bg-section">
+        Background Image
+    </div>
+
+    <!-- Flexbox Cards -->
+    <div class="cards">
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!-- Build a DOM Operations App using HTML and JavaScript.
+Requirements:
+Use DOM properties
+Select elements from DOM
+Traverse DOM elements
+Add/remove/replace elements dynamically
+Add click events to buttons -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DOM App</title>
+
+  <style>
+    body {
+      font-family: Arial;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Heading -->
+  <h1 id="heading">DOM Operations</h1>
+
+  <!-- Buttons -->
+  <button id="addBtn">Add Item</button>
+
+  <button id="removeBtn">Remove Last</button>
+
+  <button id="replaceBtn">Replace First</button>
+
+  <!-- List -->
+  <ul id="list">
+
+    <li>Item 1</li>
+
+    <li>Item 2</li>
+
+  </ul>
+
+  <script>
+
+    /* Selecting Elements */
+
+    const heading =
+      document.getElementById("heading");
+
+    const list =
+      document.getElementById("list");
+
+    const addBtn =
+      document.getElementById("addBtn");
+
+    const removeBtn =
+      document.getElementById("removeBtn");
+
+    const replaceBtn =
+      document.getElementById("replaceBtn");
+
+    /* DOM Properties */
+
+    heading.style.color = "blue";
+
+    heading.innerText = "DOM Manipulation App";
+
+    /* Adding Elements*/
+
+    addBtn.addEventListener("click", () => {
+
+      /* Create li */
+      const li = document.createElement("li");
+
+      /* Add Text */
+      li.innerText = "New Item";
+
+      /* Add li to ul */
+      list.appendChild(li);
+
+    });
+
+    /* Removing Elements*/
+
+    removeBtn.addEventListener("click", () => {
+
+      /* Last Element */
+      const lastItem = list.lastElementChild;
+
+      /* Remove */
+      if (lastItem) {
+        lastItem.remove();
+      }
+
+    });
+
+    /* Replacing Elements*/
+
+    replaceBtn.addEventListener("click", () => {
+
+      /* Create New Element */
+      const newLi = document.createElement("li");
+
+      newLi.innerText = "Replaced Item";
+
+      /* Select First Item */
+      const firstItem = list.firstElementChild;
+
+      /* Replace */
+      list.replaceChild(newLi, firstItem);
+
+    });
+
+    /* Traversing DOM */
+
+    console.log(list.parentElement);
+
+    console.log(list.children);
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!-- Function-Related Concepts-reusable logic with different patterns -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Function Concepts</title>
+</head>
+<body>
+
+<h2>Function Concepts</h2>
+
+<script>
+
+// IIFE → runs immediately
+(function () {
+  console.log("IIFE executed");
+})();
+
+
+// Currying → function inside function
+function add(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+console.log("Currying:", add(2)(3));
+
+
+// First-Class Function → function stored in variable
+let greet = function () {
+  console.log("Hello");
+};
+greet();
+
+
+// Higher-Order Function → takes/returns function
+function higher(fn) {
+  fn();
+}
+higher(() => console.log("Higher Order Function"));
+
+
+// Pure Function → same input → same output
+function pure(a, b) {
+  return a + b;
+}
+console.log("Pure:", pure(2, 3));
+
+
+// Impure Function → depends on outside value
+let x = 10;
+function impure(y) {
+  return x + y;
+}
+console.log("Impure:", impure(5));
+
+
+// Recursion → function calls itself
+function count(n) {
+  if (n === 0) return;
+  console.log(n);
+  count(n - 1);
+}
+count(3);
+
+</script>
+
+</body>
+</html>

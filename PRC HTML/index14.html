@@ -1,0 +1,47 @@
+<!-- Output methods = show data in different ways -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Output Methods</title>
+</head>
+<body>
+
+<h2 id="heading">Output Methods</h2>
+<p id="para"></p>
+
+<script>
+
+// innerHTML → sets HTML content
+document.getElementById("para").innerHTML = "<b>Using innerHTML</b>";
+
+// textContent → sets plain text (no HTML)
+document.getElementById("para").textContent = "Using textContent";
+
+// innerText → visible text only
+document.getElementById("heading").innerText = "Changed using innerText";
+
+// document.write → writes directly on page (not recommended)
+document.write("<p>Using document.write</p>");
+
+// console.log → prints in console
+console.log("Using console.log");
+
+// alert → popup message
+alert("This is alert");
+
+// prompt → takes user input
+let userInput = prompt("Enter your name:");
+console.log("User:", userInput);
+
+</script>
+
+</body>
+</html>
+
+<!-- output -->
+
+<!-- Page loads → text updates
+document.write adds content
+alert shows popup
+prompt takes input
+console shows output -->

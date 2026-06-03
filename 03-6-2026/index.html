@@ -1,0 +1,108 @@
+<!-- 1.Build a Responsive Dashboard using CSS Grid, Flexbox, and JavaScript Charts. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f2f2f2;
+}
+
+.container{
+  padding:20px;
+}
+
+h1{
+  text-align:center;
+}
+
+.dashboard{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0px 0px 5px gray;
+}
+
+.chart{
+  margin-top:20px;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+}
+
+.bar{
+  height:30px;
+  background:blue;
+  margin-top:10px;
+  color:white;
+  text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="container">
+
+<h1>Dashboard</h1>
+
+<section class="dashboard">
+
+<div class="card">
+<h2>Users</h2>
+<h3>120</h3>
+</div>
+
+<div class="card">
+<h2>Orders</h2>
+<h3>80</h3>
+</div>
+
+<div class="card">
+<h2>Sales</h2>
+<h3>₹50000</h3>
+</div>
+
+<div class="card">
+<h2>Revenue</h2>
+<h3>₹75000</h3>
+</div>
+
+</section>
+
+<section class="chart">
+
+<h2>Sales Chart</h2>
+
+<div class="bar" style="width:50%">
+Jan
+</div>
+
+<div class="bar" style="width:70%">
+Feb
+</div>
+
+<div class="bar" style="width:90%">
+Mar
+</div>
+
+</section>
+
+</main>
+
+</body>
+</html>

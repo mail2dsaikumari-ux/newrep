@@ -1,0 +1,169 @@
+<!-- HTML concepts -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HTML Full Concepts Demo">
+  <title>Complete HTML Concepts</title>
+
+  <!-- CSS -->
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    .box { margin: 15px 0; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+
+<body>
+
+  <h1> HTML Concepts</h1>
+
+  <!-- Element vs Tag -->
+  <div class="box">
+    <p>This is an ELEMENT (opening + content + closing)</p>
+    <br> This is a TAG.
+  </div>
+
+  <!-- Attributes -->
+  <div class="box">
+    <a href="https://google.com" target="_blank">Visit Google</a>
+  </div>
+
+  <!-- Block & Inline -->
+  <div class="box">
+    <div style="background:rgb(161, 148, 191);">Block</div>
+    <span style="background:rgb(99, 230, 99);">Inline</span>
+  </div>
+
+  <!-- Headings -->
+  <div class="box">
+    <h1>H1 Wellcome to HTML</h1>
+    <h2>H2 Wellcome to HTML</h2>
+    <h3>H3 Wellcome to HTML</h3>
+  </div>
+
+  <!-- Paragraph -->
+  <div class="box">
+    <p>This is my HTML paragraph. </p>
+    <p>It is a simple block of text that is separated from other contents. </p>
+  </div>
+
+  <!-- Lists -->
+  <div class="box">
+    <ul>
+      <li>FRUITS</li>
+    </ul>
+    <ul>
+        <li> APPLE </li>
+        <li> BANANA </li>
+        <li> ORANGE </li>
+    </ul>
+    <ol>
+      <li>VEGITABLES</li>
+    </ol>
+    <ol>
+        <li> CARROT </li>
+        <li> POTATO </li>
+        <li> CUCUMBER </li>
+    </ol>
+  </div>
+
+  <!-- Table -->
+  <div class="box">
+    <table border="1">
+      <tr><th>Name</th><th>Marks</th><th>Subject</th><th>Grade</th></tr>
+      <tr><td>Sai</td><td>95</td><td>Maths</td><td>A+</td></tr>
+    </table>
+  </div>
+
+  <!-- Form (ALL TYPES) -->
+  <div class="box">
+    <form>
+      <input type="text" placeholder="Name"><br><br>
+      <input type="email" placeholder="Email"><br><br>
+      <input type="password" placeholder="Password"><br><br>
+
+      Gender:
+      <input type="radio" name="g"> Male
+      <input type="radio" name="g"> Female <br><br>
+
+      Skills:
+      <input type="checkbox"> HTML
+      <input type="checkbox"> CSS <br><br>
+
+      <input type="date"><br><br>
+
+      <button>Submit</button>
+    </form>
+  </div>
+
+  <!-- Image -->
+  <div class="box">
+    <img src="daylight-environment-forest-459225.jpg"alt="demo"width="100px" height="100px">
+  </div>
+
+  <!-- Audio & Video -->
+  <div class="box">
+    <audio controls>
+      <source src="sample-9s.mp3">
+    </audio>
+    <video width="200" controls>
+      <source src="sample-1.mp4">
+    </video>
+  </div>
+
+  <!-- Iframe -->
+  <div class="box">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/zO0fW_sHc3w?si=Vjmugt_Pad8-SI8n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <!-- Formatting -->
+  <div class="box">
+    <b>Bold</b>
+    <strong>Strong</strong>
+    <i>Italic</i>
+    <u>Underline</u>
+  </div>
+
+  <!-- Semantic Layout -->
+  <header class="box">Header</header>
+  <nav class="box">Navigation</nav>
+  <main class="box">Main Content</main>
+  <section class="box">Section</section>
+  <article class="box">Article</article>
+  <footer class="box">Footer</footer>
+
+  <!-- JavaScript -->
+  <div class="box">
+    <button onclick="clickMe()">Click</button>
+    <p id="msg"></p>
+  </div>
+
+  <!-- Web Storage -->
+  <div class="box">
+    <button onclick="save()">Save</button>
+    <button onclick="load()">Load</button>
+    <p id="data"></p>
+  </div>
+
+  <script>
+    function clickMe() {
+      document.getElementById("msg").innerText = "Clicked!";
+    }
+
+    function save() {
+      localStorage.setItem("name", "Sai");
+      sessionStorage.setItem("status", "active");
+    }
+
+    function load() {
+      document.getElementById("data").innerText =
+        localStorage.getItem("name") + " - " +
+        sessionStorage.getItem("status");
+    }
+  </script>
+
+</body>
+</html>

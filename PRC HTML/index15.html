@@ -1,0 +1,62 @@
+<!-- Browser Object Model-nteract with browser (not HTML)-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BOM</title>
+</head>
+<body>
+
+<h2>Browser Object Model</h2>
+
+<button onclick="goBack()">Go Back</button>
+
+<script>
+
+// Window → main browser object
+console.log(window.innerWidth);
+console.log(window.innerHeight);
+
+
+// History → browser history (back/forward)
+function goBack() {
+  history.back(); // go to previous page
+}
+
+
+// Navigator → browser information
+console.log(navigator.userAgent);
+console.log(navigator.platform);
+
+
+// Screen → screen information
+console.log(screen.width);
+console.log(screen.height);
+
+
+// Location → URL information
+console.log(location.href);
+console.log(location.pathname);
+
+</script>
+
+</body>
+</html>
+
+<!-- ouyput-->
+
+<!-- • Window values (740, 813) show browser width and height
+
+• Navigator userAgent shows browser details (Chrome/Edge, Windows system)
+
+• Navigator platform (Win32) shows operating system
+
+• Screen values (1536, 864) show full screen size
+
+• Location href shows full URL of the page
+• Location pathname shows page path
+
+• "Browser Object Model" is heading shown on page
+• "Go Back" is button
+
+• When clicking "Go Back", browser moves to previous page (if available) -->

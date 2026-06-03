@@ -1,0 +1,129 @@
+<!-- 1.Creat a JavaScript function App.
+by using:-Deep Clone
+Recursion
+Debounce
+Closures
+API Retry Logic
+Promises
+Async JavaScript
+Event Handling
+DOM Manipulation -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript function App</title>
+</head>
+<body>
+
+  <h1>JavaScript function App</h1>
+
+  <button id="debounceBtn">Click Fast</button>
+
+  <script>
+
+    /* Deep Clone Function */
+    function deepClone(obj) {
+    // Creates function for copying objects deeply.
+      if (obj === null || typeof obj !== "object") {
+        return obj;
+      }
+    // If value is:
+    // number
+    // string
+    // null
+    // return directly
+      let copy = Array.isArray(obj) ? [] : {};
+    //   Checks:
+    //   Array → create []
+    //   Object → create {}
+
+      for (let key in obj) {
+        copy[key] = deepClone(obj[key]);
+      }
+    // Loops through object and copies nested values recursively.
+      return copy;
+    //   Returns cloned object.
+    }
+
+    const original = {
+      name: "Sai",
+      address: {
+        city: "Hyderabad"
+      }
+    };
+    // nested object
+    const cloned = deepClone(original);
+    // creates separate copy
+    console.log("Deep Clone:", cloned);
+
+
+
+    /* Debounce Function */
+    function debounce(fn, delay) {
+    // creates debounce function
+      let timer;
+    // Stores timer ID.
+      return function () {
+
+        clearTimeout(timer);
+        // Clears previous timer if user clicks again quickly.
+
+        timer = setTimeout(() => {
+          fn();
+        }, delay);
+    // Runs function only after delay.
+      };
+    }
+
+    const handleClick = debounce(() => {
+      console.log("Button Clicked");
+    }, 1000);
+    // Prints after 1 second.
+
+    document
+      .getElementById("debounceBtn")
+      .addEventListener("click", handleClick);
+
+
+    /* Retry API Function */
+    function retryApi(fn, retries, delay) {
+    // Function for retrying API calls.
+      fn()
+        .then(res => console.log(res))
+    // If success → print result.
+        .catch(() => {
+        // If failed → go to catch.
+          if (retries > 0) {
+        // Check retries remaining.
+            console.log("Retrying...");
+
+            setTimeout(() => {
+              retryApi(fn, retries - 1, delay);
+            }, delay);
+        // Retry again after delay.
+          }
+
+        });
+    }
+
+    function fakeApi() {
+
+      return new Promise((resolve, reject) => {
+
+        Math.random() > 0.5
+        // Random success or failure.
+          ? resolve("API Success")
+        //   success message
+          : reject("API Failed");
+        //   failure message
+
+      });
+    }
+
+    retryApi(fakeApi, 3, 1000);
+
+  </script>
+
+</body>
+</html>

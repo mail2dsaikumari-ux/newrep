@@ -1,0 +1,84 @@
+<!-- Create a Color Picker App by using JavaScript Events, CSS Variables, and Responsive Design. -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Picker</title>
+
+  <style>
+
+    :root{
+      --bgColor:#ffffff;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:var(--bgColor);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .box{
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    h1{
+      margin-bottom:20px;
+    }
+
+    input{
+      width:100px;
+      height:50px;
+      border:none;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+
+    <section class="box">
+
+      <h1>Color Picker App</h1>
+
+      <input
+        type="color"
+        id="colorPicker"
+        onchange="changeColor()"
+      >
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Change Color
+    function changeColor(){
+
+      let color =
+      document.getElementById("colorPicker")
+      .value;
+
+      document.documentElement
+      .style.setProperty(
+      "--bgColor",
+      color
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>

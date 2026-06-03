@@ -1,0 +1,136 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drag and Drop Upload</title>
+
+<style>
+
+body{
+font-family:Arial;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#f4f4f4;
+}
+
+/* drag box */
+
+.drop-box{
+width:300px;
+padding:30px;
+border:2px dashed #777;
+text-align:center;
+background:white;
+transition:0.3s;
+}
+
+.drop-box.dragover{
+background:#e8f0ff;
+border-color:blue;
+}
+
+img{
+width:100%;
+margin-top:10px;
+}
+
+button{
+margin-top:10px;
+padding:8px 12px;
+background:red;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.error{
+color:red;
+margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="drop-box" id="dropBox">
+
+<p>Drag & Drop Image Here</p>
+
+<input type="file" id="fileInput">
+
+<p id="fileName"></p>
+
+<img id="preview">
+
+<button id="removeBtn" style="display:none;">Remove</button>
+
+<p class="error" id="error"></p>
+
+</div>
+
+<script>
+
+const dropBox=document.getElementById("dropBox");
+const fileInput=document.getElementById("fileInput");
+const preview=document.getElementById("preview");
+const fileName=document.getElementById("fileName");
+const removeBtn=document.getElementById("removeBtn");
+const error=document.getElementById("error");
+
+dropBox.addEventListener("dragover",(e)=>{
+e.preventDefault();
+dropBox.classList.add("dragover");
+});
+
+dropBox.addEventListener("dragleave",()=>{
+dropBox.classList.remove("dragover");
+});
+
+dropBox.addEventListener("drop",(e)=>{
+e.preventDefault();
+dropBox.classList.remove("dragover");
+
+const file=e.dataTransfer.files[0];
+handleFile(file);
+});
+
+fileInput.addEventListener("change",()=>{
+handleFile(fileInput.files[0]);
+});
+
+function handleFile(file){
+
+if(!file.type.startsWith("image/")){
+error.innerText="Invalid file type";
+return;
+}
+
+error.innerText="";
+fileName.innerText="File: "+file.name;
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+preview.src=e.target.result;
+removeBtn.style.display="block";
+}
+
+reader.readAsDataURL(file);
+
+}
+
+removeBtn.onclick=function(){
+preview.src="";
+fileName.innerText="";
+error.innerText="";
+removeBtn.style.display="none";
+fileInput.value="";
+}
+
+</script>
+
+</body>
+</html> -->

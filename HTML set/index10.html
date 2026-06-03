@@ -1,0 +1,81 @@
+<!-- CSS Grid, layout, responsive design, media queries -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 7</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* Grid Layout */
+        .container {
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "left right";
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .header {
+            grid-area: header;
+            background: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .left {
+            grid-area: left;
+            background: lightblue;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+        }
+
+        .right {
+            grid-area: right;
+            background: lightgreen;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+        }
+
+        /* Responsive Colors */
+        body {
+            background-color: green;
+        }
+
+        /* Medium devices */
+        @media (max-width: 768px) {
+            body {
+                background-color: red;
+            }
+        }
+
+        /* Small devices */
+        @media (max-width: 480px) {
+            body {
+                background-color: yellow;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="left">Left Content</div>
+        <div class="right">Right Content</div>
+    </div>
+
+</body>
+</html>
+
+<!-- how output comes 🟢 Large screen (>768px) → Green
+🔴 Medium screen (≤768px) → Red
+🟡 Small screen (≤480px) → Yellow -->

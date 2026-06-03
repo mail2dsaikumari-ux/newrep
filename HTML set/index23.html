@@ -1,0 +1,177 @@
+<!-- Create a weather app using React Hooks, API fetching with async/await, semantic HTML, and modern CSS styling. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather App</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:linear-gradient(to right,#4facfe,#00f2fe);
+    }
+
+    .container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .weather-box{
+      background:white;
+      padding:30px;
+      width:350px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin-bottom:15px;
+      box-sizing:border-box;
+    }
+
+    button{
+      padding:10px 20px;
+      border:none;
+      background:blue;
+      color:white;
+      cursor:pointer;
+      border-radius:5px;
+    }
+
+    .weather-info{
+      margin-top:20px;
+    }
+
+    .error{
+      color:red;
+      font-weight:bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <section class="weather-box">
+
+      <h1>Weather App</h1>
+
+      <!-- Input -->
+      <input
+        type="text"
+        id="city"
+        placeholder="Enter City Name"
+      >
+
+      <!-- Button -->
+      <button onclick="getWeather()">
+        Get Weather
+      </button>
+
+      <!-- Output -->
+      <article
+        class="weather-info"
+        id="weatherInfo">
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Async Function
+    async function getWeather(){
+
+      // Get City
+      let city =
+      document.getElementById("city").value;
+
+      // Output Element
+      let weatherInfo =
+      document.getElementById("weatherInfo");
+
+      // Empty Input Check
+      if(city === ""){
+
+        weatherInfo.innerHTML =
+        "<p class='error'>Please Enter City Name</p>";
+
+        return;
+      }
+
+      // API URL
+      let url =
+      `https://wttr.in/${city}?format=j1`;
+
+      try{
+
+        // Fetch API
+        let response = await fetch(url);
+
+        // JSON Data
+        let data = await response.json();
+
+        // Check Invalid City
+        if(!data.current_condition){
+
+          weatherInfo.innerHTML =
+          "<p class='error'>City Not Found</p>";
+
+          return;
+        }
+
+        // Weather Data
+        let temp =
+        data.current_condition[0].temp_C;
+
+        let weather =
+        data.current_condition[0]
+        .weatherDesc[0].value;
+
+        let humidity =
+        data.current_condition[0].humidity;
+
+        // Display Weather
+        weatherInfo.innerHTML = `
+
+          <h2>${city}</h2>
+
+          <p>
+            Temperature : ${temp} °C
+          </p>
+
+          <p>
+            Weather : ${weather}
+          </p>
+
+          <p>
+            Humidity : ${humidity}%
+          </p>
+
+        `;
+
+      }
+
+      catch(error){
+
+        weatherInfo.innerHTML =
+        "<p class='error'>City Not Found</p>";
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

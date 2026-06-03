@@ -1,0 +1,79 @@
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<script>
+function greet(name, callback) {
+  console.log("Hello " + name);
+  callback();
+}
+
+function sayBye() {
+  console.log("Bye!");
+}
+
+greet("Sai", sayBye);
+</script>
+
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h2>Promise Example</h2>
+<p id="output">Waiting...</p>
+
+<script>
+let promise = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    resolve("Data received successfully ✅");
+  }, 2000);
+});
+
+promise.then(function(result) {
+  document.getElementById("output").innerHTML = result;
+}).catch(function(error) {
+  document.getElementById("output").innerHTML = error;
+});
+</script>
+
+</body>
+</html> -->
+
+ with button 
+ 
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Async Await Button</h2>
+<button onclick="check()">Check Number</button>
+
+<p id="result"></p>
+
+<script>
+async function check() {
+  let num = 4;
+
+  let promise = new Promise(function(resolve, reject) {
+    if (num % 2 === 0) {
+      resolve("Even number ✅");
+    } else {
+      reject("Odd number ❌");
+    }
+  });
+
+  try {
+    let result = await promise;
+    document.getElementById("result").innerHTML = result;
+  } catch (error) {
+    document.getElementById("result").innerHTML = error;
+  }
+}
+</script>
+
+</body>
+</html>

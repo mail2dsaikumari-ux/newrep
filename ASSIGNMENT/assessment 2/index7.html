@@ -1,0 +1,58 @@
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h3>Retry Logic Example</h3>
+
+<script>
+
+// Retry Function
+async function retryAsync(fn, retries, delay){
+
+ for(let i = 0; i <= retries; i++){
+
+  try{
+   return await fn();
+  }
+
+  catch(error){
+
+   console.log("Retry attempt:", i + 1);
+
+   if(i === retries){
+    throw error;
+   }
+
+   await new Promise(resolve => setTimeout(resolve, delay));
+
+  }
+
+ }
+
+}
+
+
+// Fake API (fails first 2 times)
+let attempt = 0;
+
+async function fakeAPI(){
+
+ attempt++;
+
+ if(attempt < 3){
+  throw "API Failed";
+ }
+
+ return "API Success";
+}
+
+
+// Call Retry Function
+retryAsync(fakeAPI, 5, 1000)
+.then(result => console.log(result))
+.catch(err => console.log(err));
+
+</script>
+
+</body>
+</html> -->

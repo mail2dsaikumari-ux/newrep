@@ -1,0 +1,208 @@
+<!-- Build a calculator using React Hooks, JavaScript event handling, CSS Grid layout, and semantic HTML structure. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    /* Container */
+    .container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    /* Calculator Box */
+    .calculator{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+      width:300px;
+      text-align:center;
+    }
+
+    /* Heading */
+    h1{
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    /* Display */
+    #display{
+      width:100%;
+      height:50px;
+      margin-bottom:15px;
+      font-size:25px;
+      text-align:right;
+      padding-right:10px;
+      box-sizing:border-box;
+    }
+
+    /* Grid Layout */
+    .buttons{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+    }
+
+    /* Buttons */
+    button{
+      padding:20px;
+      font-size:18px;
+      border:none;
+      background:#4facfe;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#0077ff;
+    }
+
+  </style>
+
+</head>
+
+<body>
+  
+<!-- <head> -->
+    <h2>CALCULATIONS</h2>
+
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <section class="calculator">
+
+      <!-- Title -->
+      <h1>Simple Calculator</h1>
+
+      <!-- Display -->
+      <input
+        type="text"
+        id="display"
+        placeholder="Enter Values"
+        readonly
+      >
+
+      <!-- Buttons -->
+      <article class="buttons">
+
+        <button onclick="clearDisplay()">
+          C
+        </button>
+
+        <button onclick="appendValue('/')">
+          /
+        </button>
+
+        <button onclick="appendValue('*')">
+          *
+        </button>
+
+        <button onclick="appendValue('-')">
+          -
+        </button>
+
+        <button onclick="appendValue('7')">
+          7
+        </button>
+
+        <button onclick="appendValue('8')">
+          8
+        </button>
+
+        <button onclick="appendValue('9')">
+          9
+        </button>
+
+        <button onclick="appendValue('+')">
+          +
+        </button>
+
+        <button onclick="appendValue('4')">
+          4
+        </button>
+
+        <button onclick="appendValue('5')">
+          5
+        </button>
+
+        <button onclick="appendValue('6')">
+          6
+        </button>
+
+        <button onclick="appendValue('.')">
+          .
+        </button>
+
+        <button onclick="appendValue('1')">
+          1
+        </button>
+
+        <button onclick="appendValue('2')">
+          2
+        </button>
+
+        <button onclick="appendValue('3')">
+          3
+        </button>
+
+        <button onclick="calculate()">
+          =
+        </button>
+
+        <button onclick="appendValue('0')">
+          0
+        </button>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Display Element
+    let display =
+    document.getElementById("display");
+
+    // Add Values
+    function appendValue(value){
+
+      display.value += value;
+
+    }
+
+    // Clear Display
+    function clearDisplay(){
+
+      display.value = "";
+
+    }
+
+    // Calculate Result
+    function calculate(){
+
+      display.value =
+      eval(display.value);
+
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!-- Arrays:-Array is used to store multiple values in one variable-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Arrays</title>
+</head>
+<body>
+
+<h2>JavaScript Arrays </h2>
+
+<script>
+
+// 1. ADDING ELEMENTS-Add items to array
+// push() → add at end
+// unshift() → add at start
+
+let arr = [1, 2, 3];
+
+arr.push(4);
+arr.unshift(0);
+console.log(arr);
+
+
+// 2. FINDING ELEMENTS-Check/search values
+// includes() → true/false
+// indexOf() → gives position
+
+console.log(arr.includes(2));
+console.log(arr.indexOf(3));
+
+
+// 3. REMOVING ELEMENTS-Delete values/remove items
+// Types: pop()-remove last, shift()-remove first, splice()
+
+arr.pop();
+arr.shift();
+console.log(arr);
+
+
+
+// 4. REMOVING ALL ELEMENTS-Clear full array
+// Types: arr = [], arr.length = 0
+
+arr = [];
+console.log(arr);
+
+
+// 5. COMBINING ARRAYS-join 2 arrays
+// type-concat(), spread[...a,...b]
+
+
+let a = [1, 2];
+let b = [3, 4];
+
+let combined = a.concat(b);
+console.log(combined);
+
+
+
+// 6. COPYING ARRAYS-make Duplicate array
+// types-spread[...arr], slice()
+
+let copy = [...combined];
+console.log(copy);
+
+
+// 7. ITERATING ARRAYS-loop through values/array
+// type-for, for-of,forEach()
+
+for (let i of copy) {
+  console.log(i);
+}
+
+// 8. join(), sort()-change format/order
+// join() → convert to string
+// sort() → arrange values
+
+let names = ["Sai", "Kumari", "Anu"];
+
+console.log(names.join("-"));
+console.log(names.sort());
+
+
+// 9. filter()- condition, map()-new array, reduce()-single value(sum)
+
+let nums = [1, 2, 3, 4];
+
+let even = nums.filter(n => n % 2 === 0);
+console.log(even);
+
+let doubled = nums.map(n => n * 2);
+console.log(doubled);
+
+let sum = nums.reduce((acc, n) => acc + n, 0);
+console.log(sum);
+
+
+
+// 10. FLATTENING ARRAYS-remove nested arrays
+// type-flat()
+
+let nested = [1, [2, 3], [4, 5]];
+console.log(nested.flat());
+
+
+
+// 11. REMOVING DUPLICATES-remove repeated values
+// type-set()
+
+let dup = [1, 2, 2, 3, 3];
+
+let unique = [...new Set(dup)];
+console.log(unique);
+
+
+
+// 12. map-returns new array vs forEach-no return
+
+let arr2 = [1, 2, 3];
+let newArr = arr2.map(n => n * 2);
+console.log(newArr);
+
+arr2.forEach(n => console.log(n * 2));
+
+
+// 13. Array.from()- convert to array
+// string → array
+// (types:-array.from())
+
+let str = "Sai";
+
+let arrFrom = Array.from(str);
+console.log(arrFrom);
+
+</script>
+
+</body>
+</html>

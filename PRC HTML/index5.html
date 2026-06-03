@@ -1,0 +1,116 @@
+<!-- DOM-connect JavaScript with HTML to control webpage -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Concepts</title>
+</head>
+<body>
+
+<h2 id="title">Hello DOM</h2>
+
+<p class="text">This are JS Concepts</p>
+
+<button onclick="changeText()">Click Me</button>
+
+<ul id="list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+
+<script>
+
+// DOM Properties-Access page data
+// document.title, document.body
+
+console.log(document.title);
+console.log(document.body);
+
+
+// Selecting Elements-Get elements from HTML
+// getElementById()
+// querySelector()
+
+let heading = document.getElementById("title");
+let para = document.querySelector(".text");
+
+console.log(heading, para);
+
+
+// Traversing DOM-Move between elements
+// parent, child, first child
+
+let list = document.getElementById("list");
+
+console.log(list.parentElement);
+console.log(list.children);
+console.log(list.firstElementChild);
+
+// Adding / Removing / Replacing-Change HTML
+// createElement()
+// appendChild()
+// removeChild()
+// replaceChild()
+
+
+// Adding Element
+let newItem = document.createElement("li");
+newItem.textContent = "Item 3";
+list.appendChild(newItem);
+
+
+// Removing Element
+list.removeChild(list.children[0]);
+
+
+// Replacing Element
+
+let replaceItem = document.createElement("li");
+replaceItem.textContent = "New Item";
+
+list.replaceChild(replaceItem, list.children[0]);
+
+
+// Adding Events-Add actions (click, etc.)
+// onclick
+// functions
+
+function changeText() {
+  heading.textContent = "Text Changed!";
+}
+
+</script>
+
+</body>
+</html>
+
+<!-- OUTPUT -->
+
+<!-- On Web Page
+*Heading → Hello DOM
+*Paragraph → This is paragraph
+*Button → Click Me
+*List:
+ -Item 1
+ -Item 2
+
+After Clicking Button;-
+ *Heading changes to:
+ *Text Changed!
+
+List Changes (Automatic)
+After page loads (JavaScript runs):
+1.Item 3 is added
+2.Item 1 is removed
+3.Item 2 is replaced with "New Item"
+ Final List:
+ New Item
+ List Changes (Automatic)
+
+After page loads (JavaScript runs):
+
+Item 3 is added
+Item 1 is removed
+Item 2 is replaced with "New Item"
+👉 Final List:
+New Item -->

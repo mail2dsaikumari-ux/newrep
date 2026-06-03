@@ -1,0 +1,147 @@
+<!-- Create an image slider using React state, JavaScript event handling, CSS animations, and semantic HTML structure. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Slider</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    /* Container */
+    .container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    /* Slider Box */
+    .slider{
+      width:500px;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    /* Image */
+    img{
+      width:100%;
+      height:300px;
+      border-radius:10px;
+
+      /* CSS Animation */
+      animation:fade 1s;
+    }
+
+    /* Fade Animation */
+    @keyframes fade{
+
+      from{
+        opacity:0;
+      }
+
+      to{
+        opacity:1;
+      }
+    }
+
+    /* Buttons */
+    button{
+      padding:10px 20px;
+      margin:15px;
+      border:none;
+      background:blue;
+      color:white;
+      cursor:pointer;
+      border-radius:5px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <section class="slider">
+
+      <h1>Image Slider</h1>
+
+      <!-- Image -->
+      <img id="sliderImage"
+      src="https://picsum.photos/id/1015/500/300">
+
+      <br>
+
+      <!-- Buttons -->
+      <button onclick="previousImage()">
+        Previous
+      </button>
+
+      <button onclick="nextImage()">
+        Next
+      </button>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Images Array
+    let images = [
+
+      "https://picsum.photos/id/1015/500/300",
+
+      "https://picsum.photos/id/1016/500/300",
+
+      "https://picsum.photos/id/1018/500/300"
+
+    ];
+
+    // Current Index
+    let index = 0;
+
+    // Image Element
+    let sliderImage =
+    document.getElementById("sliderImage");
+
+    // Next Button
+    function nextImage(){
+
+      index++;
+
+      // Restart Slider
+      if(index >= images.length){
+        index = 0;
+      }
+
+      sliderImage.src = images[index];
+    }
+
+    // Previous Button
+    function previousImage(){
+
+      index--;
+
+      // Last Image
+      if(index < 0){
+        index = images.length - 1;
+      }
+
+      sliderImage.src = images[index];
+    }
+
+  </script>
+
+</body>
+</html>

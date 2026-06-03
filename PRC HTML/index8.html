@@ -1,0 +1,51 @@
+<!-- Iterators & Generators -->
+
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Iterators & Generators</title>
+</head>
+<body>
+
+<h2>Iterators & Generators</h2>
+
+<script>
+
+// Iterator →Iterator is used to get values one by one from a collection (like array)
+// It uses .next() method
+// Each time you call .next():
+// Gives next value
+// Tells if it is finished (done: true/false)
+
+let arr = [10, 20, 30];
+
+let iterator = arr[Symbol.iterator]();
+
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+
+
+// Generator → Generator is a special function that can pause and continue
+// Written using function*
+// Uses yield keyword
+// Each yield gives one value
+
+function* gen() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+let g = gen();
+
+console.log(g.next());
+console.log(g.next());
+console.log(g.next());
+console.log(g.next());
+
+</script>
+
+</body>
+</html>

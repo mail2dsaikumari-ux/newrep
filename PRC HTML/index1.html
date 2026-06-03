@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> CSS Concepts </title>
+
+<style>
+
+/* Universal */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  color: darkblue;
+  margin-bottom: 20px;
+}
+
+/* Box */
+.box {
+  background: white;
+  border: 2px solid black;
+  margin: 15px 0;
+  padding: 15px;
+}
+
+/* Colors */
+.hex { color: #ff0000; }
+.rgb { color: rgb(0,0,255); }
+
+/* Background */
+.bg {
+  background-image: url('https://via.placeholder.com/300');
+  background-size: cover;
+  height: 120px;
+}
+
+/* Selectors + Specificity */
+#special { color: red; }
+.group1, .group2 { color: green; }
+
+/* Flex */
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Float FIX */
+.float-img {
+  float: right;
+  margin-left: 10px;
+}
+.box::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Position */
+.relative {
+  position: relative;
+  left: 20px;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  background: yellow;
+}
+
+/* Z-index */
+.z-container {
+  position: relative;
+  height: 100px;
+}
+.z1 {
+  position: absolute;
+  background: blue;
+  color: white;
+  padding: 5px;
+  z-index: 1;
+}
+.z2 {
+  position: absolute;
+  background: red;
+  color: white;
+  padding: 5px;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+}
+
+/* Opacity */
+.opacity {
+  opacity: 0.5;
+}
+
+/* Important */
+.important {
+  color: purple !important;
+}
+
+/* Alignment */
+.center {
+  text-align: center;
+}
+
+/* Box Model Demo */
+.model-demo {
+  border: 3px solid black;   /* Border */
+  margin: 20px;              /* Margin */
+  padding: 20px;             /* Padding */
+  background: #e6f7ff;
+}
+
+.inner-box {
+  border: 2px dashed red;
+  padding: 15px;
+  background: white;
+}
+
+/* Responsive */
+@media (max-width:600px) {
+  body {
+    background: lightblue;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<h1> ALL CSS Concepts </h1>
+
+<!-- Colors -->
+<div class="box">
+  <p class="hex">HEX Color</p>
+  <p class="rgb">RGB Color</p>
+</div>
+
+<!-- Selectors + Specificity -->
+<div class="box">
+  <p id="special">ID Selector (Highest priority)</p>
+  <p class="group1">Grouping Selector 1</p>
+  <p class="group2">Grouping Selector 2</p>
+</div>
+
+<!-- Background -->
+<div class="box bg"></div>
+
+<!-- Box Model -->
+<div class="box">Basic Box Model Example</div>
+
+<!-- Border, Margin, Padding CLEAR DEMO -->
+<div class="box model-demo">
+  <h3>Border, Margin, Padding</h3>
+  <div class="inner-box">
+    This clearly shows padding (inside space)
+  </div>
+</div>
+
+<!-- Flex -->
+<div class="box flex">
+  <div>Flex 1</div>
+  <div>Flex 2</div>
+</div>
+
+<!-- Grid -->
+<div class="box grid">
+  <div>Grid A</div>
+  <div>Grid B</div>
+</div>
+
+<!-- Float -->
+<div class="box">
+  <img src="daylight-environment-forest-459225.jpg" class="float-img"width="100px" height="100px">
+  <p>Image floats right and stays inside box correctly.</p>
+</div>
+
+<!-- Position -->
+<div class="box relative">Relative Position</div>
+<div class="box sticky">Sticky Position (scroll)</div>
+
+<!-- Z-index -->
+<div class="box z-container">
+  <div class="z1">Z-Index 1</div>
+  <div class="z2">Z-Index 2 (Top)</div>
+</div>
+
+<!-- Opacity -->
+<div class="box opacity">Opacity Example</div>
+
+<!-- Important -->
+<div class="box">
+  <p class="important">This uses !important</p>
+</div>
+
+<!-- Alignment -->
+<div class="box center">
+  Center Aligned Text
+</div>
+
+</body>
+</html>

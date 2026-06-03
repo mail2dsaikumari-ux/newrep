@@ -1,0 +1,311 @@
+<!-- Java script Concepts -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Concepts</title>
+</head>
+<body>
+
+<h2>JavaScript Output</h2>
+
+<script>
+// BASICS-
+
+//  VARIABLES-Variables are used to store data.Declared using let, const, var
+
+let name = "Sai";
+let age = 20;
+let isStudent = true;
+let data;
+let empty = null;
+
+//  TYPEOF OPERATOR-Used to check data type
+
+console.log(typeof name);
+console.log(typeof age);
+console.log(typeof isStudent);
+console.log(typeof data);
+console.log(typeof empty);
+
+// DATA TYPES-Type of data stored in variable
+// String → "Sai"
+// Number → 20
+// Boolean → true/false
+// Undefined → no value
+// Null → empty value
+// Object / Array → complex data
+
+let student = { name: "Sai", age: 20 };
+let subjects = ["HTML", "CSS", "JS"];
+
+// WHEN / HOW / WHAT TO STORE-
+
+// When → store when needed
+// How → use meaningful names
+// What → store correct type
+
+let totalMarks = 450;
+let isPassed = true;
+
+console.log("Marks:", totalMarks);
+
+// OPERATORS
+
+// 1.ARITHMETIC OPERATORS- Used for calculations
+// + add
+// - subtract
+// * multiply
+// / divide
+// % remainder
+
+let a = 10, b = 5;
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);
+console.log(a % b);
+
+// 2.ASSIGNMENT OPERATORS-Used to assign/update values
+// = assign
+// +=, -=, *= update
+
+let x = 10;
+x += 5;
+x -= 2;
+x *= 2;
+console.log("x:", x);
+
+// 3.COMPARISON OPERATORS -Compare values → gives true/false
+// == equal
+// != not equal
+// > < greater/less
+// === strict check
+
+console.log(a == b);
+console.log(a != b);
+console.log(a > b);
+console.log(a === 10);
+
+// 4.TERNARY OPERATOR-Short form of if-else
+
+let result = age >= 18 ? "Adult" : "Minor";
+console.log(result);
+
+// 5.LOGICAL OPERATORS-Used with conditions
+// && AND
+// || OR
+// ! NOT
+
+let isLoggedIn = true;
+let hasPermission = false;
+
+console.log(isLoggedIn && hasPermission);
+console.log(isLoggedIn || hasPermission);
+console.log(!isLoggedIn);
+
+// CONTROL STATEMENTS 
+
+// if-else-Used for decision making
+// Example:
+// Check marks → grade
+
+let marks = 75;
+
+if (marks >= 90) {
+  console.log("Grade A");
+} else if (marks >= 60) {
+  console.log("Grade B");
+} else {
+  console.log("Fail");
+}
+
+// SWITCH-Used when checking multiple exact values
+// Example:
+// Day → Monday, Tuesday
+
+let day = 2;
+
+switch (day) {
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  default:
+    console.log("Invalid");
+}
+
+// LOOPS-Repeat code multiple times
+
+// 1. for-fixed times
+for (let i = 1; i <= 3; i++) {
+  console.log("For:", i);
+}
+
+// 2.while-condition based
+let i = 1;
+while (i <= 3) {
+  console.log("While:", i);
+  i++;
+}
+
+// 3.do-while-runs at least once
+let j = 1;
+do {
+  console.log("DoWhile:", j);
+  j++;
+} while (j <= 3);
+
+// 4.BREAK- stop loop & CONTINUE-skip one step
+
+for (let k = 1; k <= 5; k++) {
+  if (k === 3) continue;
+  if (k === 5) break;
+  console.log("Loop:", k);
+}
+
+// 5.FOR-IN:-Used for objects
+
+for (let key in student) {
+  console.log(key, student[key]);
+}
+
+// 6.FOR-OF:-Used for arrays
+
+for (let sub of subjects) {
+  console.log(sub);
+}
+
+// INFINITE LOOP (DON'T RUN)
+
+// let j = 1;
+/*
+while (j <= 5) {
+  console.log("Infinite Loop:", j);
+  // j++ is missing → condition always true
+}
+*/
+
+// FUNCTIONS
+
+// 1.FUNCTION DECLARATION-Normal function
+// Example:-function greet() {}
+
+function greet() {
+  console.log("Hello");
+}
+greet();
+
+// 2.FUNCTION EXPRESSION-Function stored in variable
+
+// * Named Function Expression
+
+let add = function (a, b) {
+  return a + b;
+};
+console.log(add(2, 3));
+
+// * ARROW FUNCTION-Short function syntax
+// example:-(a, b) => a * b
+
+let multiply = (a, b) => a * b;
+console.log(multiply(2, 4));
+
+// * Anonymous (used in setTimeout)
+
+setTimeout(function () {
+  console.log("Hello after 2 sec");
+}, 2000);
+
+// 3. PARAMETERS-inside function vs ARGUMENTS-values passed
+
+function show(name) {
+  console.log(name);
+}
+show("Sai");
+
+// 4. DEFAULT PARAMETERS-Set default value
+// Example:-name = "Guest"
+
+function greetUser(name = "Guest") {
+  console.log(name);
+}
+greetUser();
+
+// 5. REST PARAMETERS-Accept multiple values
+//  Example:- ...nums
+
+function total(...nums) {
+  let sum = 0;
+  for (let n of nums) sum += n;
+  console.log(sum);
+}
+total(1, 2, 3);
+
+// 6. SCOPE-Where variable is used
+// 1.Global → everywhere
+// 2.Local → inside function
+
+let globalVar = "Global";
+function test() {
+  let localVar = "Local";
+  console.log(globalVar);
+  console.log(localVar);
+}
+test();
+
+// 7. HOISTING-Use variable/function before declaration
+// Functions → fully hoisted
+// var → undefined
+
+hello();
+function hello() {
+  console.log("Hoisting");
+}
+console.log(h);
+var h = 10;
+
+// 8. var-old,function scope vs let-block scope vs const-cannot change
+
+var v = 1;
+let l = 2;
+const c = 3;
+l = 5;
+
+// 8. CLOSURES-Function remembers its outer variable
+// Example: counter
+
+function outer() {
+  let count = 0;
+  return function () {
+    count++;
+    console.log(count);
+  };
+}
+
+let counter = outer();
+counter();
+counter();
+
+// 9. THIS KEYWORD-Refers to current object
+// Example:this.name
+
+let user = {
+  name: "Sai",
+  show: function () {
+    console.log(this.name);
+  }
+};
+user.show();
+
+// BINDING(call,apply,bind)-Control this
+// call → direct
+// apply → array
+// bind → new function
+
+</script>
+
+</body>
+</html>

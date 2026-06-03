@@ -1,0 +1,132 @@
+<!-- Build a digital clock using React Hooks, JavaScript Date object, and responsive design. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Digital Clock</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    /* Clock Box */
+    .clock-box{
+      background:white;
+      padding:40px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+      width:300px;
+    }
+
+    /* Heading */
+    h1{
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    /* Clock */
+    #clock{
+      font-size:40px;
+      font-weight:bold;
+      color:blue;
+    }
+
+    /* Responsive Design */
+    @media(max-width:500px){
+
+      .clock-box{
+        width:90%;
+      }
+
+      #clock{
+        font-size:30px;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main>
+
+    <section class="clock-box">
+
+      <!-- Heading -->
+      <h1>Digital Clock</h1>
+
+      <!-- Time -->
+      <article id="clock">
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Show Time Function
+    function showTime(){
+
+      // Date Object
+      let date = new Date();
+
+      // Hours
+      let hours =
+      date.getHours();
+
+      // Minutes
+      let minutes =
+      date.getMinutes();
+
+      // Seconds
+      let seconds =
+      date.getSeconds();
+
+      // Add Zero
+      if(hours < 10){
+        hours = "0" + hours;
+      }
+
+      if(minutes < 10){
+        minutes = "0" + minutes;
+      }
+
+      if(seconds < 10){
+        seconds = "0" + seconds;
+      }
+
+      // Final Time
+      let time =
+      hours + ":" +
+      minutes + ":" +
+      seconds;
+
+      // Display Time
+      document.getElementById("clock")
+      .innerText = time;
+
+    }
+
+    // Run Every Second
+    setInterval(showTime,1000);
+
+    // First Call
+    showTime();
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!-- Build a QR Code Generator using JavaScript API Integration and Modern CSS Styling. -->
+<!-- *A QR Code Generator converts user-entered text, links, or other data into a QR code image that can be scanned by mobile devices. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code Generator</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .box{
+      background:white;
+      padding:30px;
+      width:350px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      box-sizing:border-box;
+    }
+
+    button{
+      padding:10px 20px;
+      margin-top:15px;
+      background:blue;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    img{
+      margin-top:20px;
+      width:200px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+
+    <section class="box">
+
+      <h1>QR Code Generator</h1>
+
+      <input
+        type="text"
+        id="qrText"
+        placeholder="Enter Text"
+      >
+
+      <button onclick="generateQR()">
+
+        Generate QR
+
+      </button>
+
+      <div
+    
+       id="qrResult">
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Generate QR
+    function generateQR(){
+
+      let text =
+      document.getElementById("qrText")
+      .value;
+
+      document.getElementById("qrResult")
+      .innerHTML = `
+
+        <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${text}">
+
+      `;
+
+    }
+
+  </script>
+
+</body>
+</html>

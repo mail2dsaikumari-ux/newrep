@@ -1,0 +1,229 @@
+<!-- Build a shopping cart using React Context API, JavaScript array methods, and responsive CSS design. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Cart</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    /* Products */
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+
+    /* Card */
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:scale(1.05);
+    }
+
+    img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:10px;
+    }
+
+    button{
+      padding:10px 20px;
+      border:none;
+      background:blue;
+      color:white;
+      cursor:pointer;
+      border-radius:5px;
+      margin-top:10px;
+    }
+
+    /* Cart */
+    .cart{
+      background:white;
+      margin-top:30px;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    .cart-item{
+      display:flex;
+      justify-content:space-between;
+      margin:10px 0;
+      border-bottom:1px solid #ccc;
+      padding-bottom:10px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h1>Shopping Cart</h1>
+
+    <!-- Products -->
+    <section class="products" id="products">
+
+    </section>
+
+    <!-- Cart -->
+    <section class="cart">
+
+      <h2>Cart Items</h2>
+
+      <div id="cartItems">
+
+      </div>
+
+      <h3 id="total">
+        Total : ₹0
+      </h3>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Products Array
+    let products = [
+
+      {
+        id:1,
+        name:"Toy",
+        price:599,
+        image:
+        "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1"
+      },
+
+      {
+        id:2,
+        name:"Dress",
+        price:1499,
+        image:
+        "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
+      },
+
+      {
+        id:3,
+        name:"Watch",
+        price:2999,
+        image:
+        "https://images.unsplash.com/photo-1523170335258-f5ed11844a49"
+      }
+
+    ];
+
+    // Cart Array
+    let cart = [];
+
+    // Product Section
+    let productsDiv =
+    document.getElementById("products");
+
+    // Display Products
+    products.forEach(function(product){
+
+      productsDiv.innerHTML += `
+
+        <article class="card">
+
+          <img src="${product.image}">
+
+          <h3>${product.name}</h3>
+
+          <p>₹${product.price}</p>
+
+          <button
+          onclick="addToCart(${product.id})">
+
+            Add to Cart
+
+          </button>
+
+        </article>
+
+      `;
+
+    });
+
+    // Add To Cart
+    function addToCart(id){
+
+      let item =
+      products.find(function(product){
+
+        return product.id === id;
+
+      });
+
+      cart.push(item);
+
+      displayCart();
+    }
+
+    // Display Cart
+    function displayCart(){
+
+      let cartItems =
+      document.getElementById("cartItems");
+
+      cartItems.innerHTML = "";
+
+      // map()
+      cart.map(function(item){
+        cartItems.innerHTML += `
+
+          <div class="cart-item">
+
+            <p>${item.name}</p>
+
+            <p>₹${item.price}</p>
+
+          </div>
+          `;
+      });
+      // reduce()
+      let total =
+      cart.reduce(function(sum,item){
+
+        return sum + item.price;
+
+      },0);
+
+      document.getElementById("total")
+      .innerText =
+      "Total : ₹" + total;
+    }
+
+  </script>
+
+</body>
+</html>

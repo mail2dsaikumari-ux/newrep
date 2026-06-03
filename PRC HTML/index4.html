@@ -1,0 +1,104 @@
+<!-- object- store data in key-value form and work with it easily/collection of key + value -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Objects</title>
+</head>
+<body>
+
+<h2>JavaScript Objects</h2>
+
+<script>
+
+let person = {
+  name: "Sai",
+  age: 20
+};
+console.log(person.name);
+
+
+// Creating Objects-Create using {} or new Object()
+let user = { name: "Kumari", age: 22 };
+
+let obj = new Object();
+obj.city = "Vizag";
+
+console.log(user, obj);
+
+
+// Dynamic Objects-Can add, update, delete properties
+let student = { name: "Sai" };
+
+student.age = 20;
+student.name = "Sai Kumari";
+delete student.age;
+
+console.log(student);
+
+
+// Iterating Objects-Use for-in loop
+let user1 = { name: "Sai", age: 20 };
+
+for (let key in user1) {
+  console.log(key, user1[key]);
+}
+
+
+// Cloning Objects-Copy object using:
+// Object.assign()
+// ...spread
+
+let original = { a: 1, b: 2 };
+let copy1 = Object.assign({}, original);
+let copy2 = { ...original };
+
+console.log(copy1, copy2);
+
+
+// Math Object-Used for math operations
+// round, floor, random
+
+console.log(Math.round(4.6));
+console.log(Math.floor(4.6));
+console.log(Math.random());
+
+
+// Date Object-Used for date & time
+let now = new Date();
+
+console.log(now.getFullYear());
+console.log(now.getMonth());
+console.log(now.getDate());
+
+
+// Garbage Collector-Automatically cleans unused memory
+let temp = { data: "test" };
+temp = null;
+
+console.log(temp);
+
+
+// Template Literals-Use backticks ` `
+//  Easy string + variable
+
+let name = "Sai";
+let msg = `Hello ${name}`;
+
+console.log(msg);
+
+
+// String Object-Work with text
+// length
+// uppercase
+// search
+
+let str = "Hello";
+console.log(str.length);
+console.log(str.toUpperCase());
+console.log(str.includes("He"));
+
+</script>
+
+</body>
+</html>

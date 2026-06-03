@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  text-align: center;
+}
+
+/* Common styles */
+.header {
+  background: #6ec1e4;
+  padding: 40px;
+}
+
+.content {
+  background: #f2f2f2;
+  padding: 40px;
+}
+
+.signup {
+  background: #ddd;
+  padding: 30px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature {
+  padding: 40px;
+}
+
+.f1 { background: #f7c59f; }
+.f2 { background: #a0c4ff; }
+.f3 { background: #ffadad; }
+
+/* 📱 Mobile (default) */
+/* Features stacked automatically */
+
+/* 📱 Tablet */
+@media (min-width: 600px) {
+  .features {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .feature {
+    width: 50%;
+  }
+}
+
+/* 💻 Desktop */
+@media (min-width: 992px) {
+  .features {
+    flex-wrap: nowrap;
+  }
+
+  .feature {
+    width: 33.33%;
+  }
+}
+
+

@@ -1,0 +1,48 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<title>Event Delegation Example</title>
+</head>
+
+<body>
+
+<h3>Dynamic List</h3>
+
+<input type="text" id="itemInput" placeholder="Enter item">
+<button id="addBtn">Add Item</button>
+
+<ul id="list"></ul>
+
+<script>
+
+const input = document.getElementById("itemInput");
+const addBtn = document.getElementById("addBtn");
+const list = document.getElementById("list");
+
+// Add item
+addBtn.addEventListener("click", function(){
+
+  const li = document.createElement("li");
+
+  li.innerHTML = input.value + " <button class='remove'>Remove</button>";
+
+  list.appendChild(li);
+
+  input.value = "";
+
+});
+
+
+// ONE event listener on parent (Event Delegation)
+list.addEventListener("click", function(event){
+
+  if(event.target.classList.contains("remove")){
+    event.target.parentElement.remove();
+  }
+
+});
+
+</script>
+
+</body>
+</html> -->

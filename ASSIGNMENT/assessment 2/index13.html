@@ -1,0 +1,62 @@
+<!-- with button  -->
+ 
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h2>Async Await Button</h2>
+<button onclick="check()">Check Number</button>
+
+<p id="result"></p>
+
+<script>
+async function check() {
+  let num = 4;
+
+  let promise = new Promise(function(resolve, reject) {
+    if (num % 2 === 0) {
+      resolve("Even number ✅");
+    } else {
+      reject("Odd number ❌");
+    }
+  });
+
+  try {
+    let result = await promise;
+    document.getElementById("result").innerHTML = result;
+  } catch (error) {
+    document.getElementById("result").innerHTML = error;
+  }
+}
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>OOP Example</h2>
+<p id="output"></p>
+
+<script>
+class Student {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  display() {
+    return "Name: " + this.name + "<br>Age: " + this.age;
+  }
+}
+
+let s1 = new Student("Sai", 25);
+
+document.getElementById("output").innerHTML = s1.display();
+</script>
+
+</body>
+</html>
+

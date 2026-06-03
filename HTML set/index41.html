@@ -1,0 +1,130 @@
+<!-- Create a sidebar menu using React state, JavaScript toggle functionality, CSS transitions, and semantic HTML structure. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modern Sidebar</title>
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    /* Sidebar */
+    .sidebar{
+      position:fixed;
+      left:-250px;
+      top:0;
+      width:250px;
+      height:100vh;
+      background:#222;
+      transition:0.5s;
+      padding-top:30px;
+    }
+
+    /* Active Sidebar */
+    .show{
+      left:0;
+    }
+    /* Links */
+    .sidebar a{
+      display:block;
+      color:white;
+      padding:15px 25px;
+      text-decoration:none;
+      font-size:18px;
+    }
+
+    .sidebar a:hover{
+      background:#444;
+    }
+    /* Menu Button */
+    .menu-btn{
+      margin:20px;
+      padding:12px 25px;
+      border:none;
+      background:#222;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+      font-size:16px;
+    }
+    /* Content */
+    .content{
+      text-align:center;
+      margin-top:100px;
+    }
+    h1{
+      color:#333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Semantic HTML -->
+  <main>
+
+    <!-- Button -->
+    <button
+      class="menu-btn"
+      onclick="toggleMenu()">
+
+      ☰ Menu
+
+    </button>
+
+    <!-- Sidebar -->
+    <section
+      class="sidebar"
+      id="sidebar">
+
+      <a href="#">
+        🏠 Home
+      </a>
+
+      <a href="#">
+        👤 Profile
+      </a>
+
+      <a href="#">
+        ⚙ Settings
+      </a>
+
+      <a href="#">
+        📞 Contact
+      </a>
+
+    </section>
+
+    <!-- Content -->
+    <article class="content">
+
+      <h1>Modern Sidebar Menu</h1>
+
+      <p>
+        Click Menu Button To Open Sidebar
+      </p>
+
+    </article>
+
+  </main>
+
+  <script>
+
+    // Sidebar
+    let sidebar =
+    document.getElementById("sidebar");
+
+    // Toggle Function
+    function toggleMenu(){
+
+      sidebar.classList.toggle("show");
+
+    }
+
+  </script>
+
+</body>
+</html>

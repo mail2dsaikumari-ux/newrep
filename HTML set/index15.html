@@ -1,0 +1,165 @@
+<!-- create a Loop App using HTML and JavaScript.
+Requirements:
+Use for loop
+Use while loop
+Use do-while loop
+Demonstrate infinite loop condition
+Use break and continue
+Use for-in loop
+Use for-of loop -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Loops App</title>
+</head>
+
+<body>
+
+  <!-- Heading -->
+  <h1>JavaScript Loops</h1>
+
+  <script>
+
+    /* for Loop */
+
+    console.log("for Loop");
+
+    /*
+      Start: i = 1
+      Condition: i <= 5
+      Increment: i++
+    */
+
+    for (let i = 1; i <= 5; i++) {
+
+      /* Print Numbers */
+      console.log(i);
+
+    }
+
+    /* while Loop*/
+
+    console.log("while Loop");
+
+    /* Variable */
+    let a = 1;
+
+    /*
+      Loop runs while condition is true
+    */
+
+    while (a <= 5) {
+
+      /* Print Value */
+      console.log(a);
+
+      /* Increase Value */
+      a++;
+
+    }
+
+    /* do-while Loop */
+
+    console.log("do-while Loop");
+
+    /* Variable */
+    let b = 1;
+
+    /*
+      Runs at least one time
+    */
+
+    do {
+
+      /* Print Value */
+      console.log(b);
+
+      /* Increase Value */
+      b++;
+
+    } while (b <= 5);
+
+    /* Infinite Loop */
+
+    /*
+      Condition always true
+
+      while(true) {
+        console.log("Infinite Loop");
+      }
+    */
+
+    /* break */
+
+    console.log("break Example");
+
+    for (let i = 1; i <= 5; i++) {
+
+      /*
+        Stop Loop when i = 3
+      */
+      if (i === 3) {
+        break;
+      }
+
+      /* Print */
+      console.log(i);
+
+    }
+
+    /* continue */
+    console.log("continue Example");
+
+    for (let i = 1; i <= 5; i++) {
+
+      /*
+        Skip when i = 3
+      */
+      if (i === 3) {
+        continue;
+      }
+
+      /* Print */
+      console.log(i);
+
+    }
+
+    /* for-in Loop*/
+    console.log("for-in Loop");
+
+    /* Object */
+    const person = {
+      name: "Sai",
+      age: 21
+    };
+
+    /*
+      Loops through object keys
+    */
+    for (let key in person) {
+
+      /* Print key + value */
+      console.log(key, person[key]);
+
+    }
+    /*for-of Loop*/
+
+    console.log("for-of Loop");
+
+    /* Array */
+    const fruits = ["Apple", "Mango", "Orange"];
+    /*
+      Loops through array values
+    */
+    for (let fruit of fruits) {
+
+      /* Print Fruit */
+      console.log(fruit);
+
+    }
+  </script>
+
+</body>
+</html>

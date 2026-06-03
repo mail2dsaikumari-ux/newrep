@@ -1,0 +1,167 @@
+<!-- Build a login page using React forms, JavaScript validation, CSS transitions
+ and semantic HTML -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:lightblue;
+    }
+
+    .container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .box{
+      background:white;
+      padding:30px;
+      width:300px;
+      border-radius:10px;
+
+      /* CSS Transition */
+      transition:0.3s;
+    }
+
+    .box:hover{
+      transform:scale(1.03);
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin-top:10px;
+      box-sizing:border-box;
+    }
+
+    button{
+      width:100%;
+      padding:10px;
+      margin-top:15px;
+      background:blue;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    .error{
+      color:red;
+      font-size:14px;
+    }
+
+    .success{
+      color:green;
+      text-align:center;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <section class="box">
+
+      <h1>Login Page</h1>
+
+      <!-- Form -->
+      <form id="loginForm">
+
+        <!-- Email -->
+        <input
+          type="text"
+          id="email"
+          placeholder="Enter Email"
+        >
+
+        <p id="emailError" class="error"></p>
+
+        <!-- Password -->
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter Password"
+        >
+
+        <p id="passwordError" class="error"></p>
+
+        <!-- Button -->
+        <button type="submit">
+          Login
+        </button>
+
+      </form>
+
+      <p id="success" class="success"></p>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Form
+    const form = document.getElementById("loginForm");
+
+    // Submit Event
+    form.addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      // Input Values
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+
+      // Error Elements
+      let emailError = document.getElementById("emailError");
+      let passwordError = document.getElementById("passwordError");
+      let success = document.getElementById("success");
+
+      // Clear Old Errors
+      emailError.innerText = "";
+      passwordError.innerText = "";
+      success.innerText = "";
+
+      let valid = true;
+
+      // Email Validation
+      if(email === ""){
+        emailError.innerText = "Email is required";
+        valid = false;
+      }
+
+      // Password Validation
+      if(password === ""){
+        passwordError.innerText = "Password is required";
+        valid = false;
+      }
+      else if(password.length < 6){
+        passwordError.innerText = "Minimum 6 characters";
+        valid = false;
+      }
+
+      // Success
+      if(valid){
+        success.innerText = "Login Successful ✅";
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- Error Handling:-Error handling is used to handle runtime errors in JavaScript without stopping the program. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Error Handling</title>
+</head>
+<body>
+
+<h2>Error Handling</h2>
+
+<script>
+
+  // try/catch
+    // try → code to test
+    // catch → handles the error
+
+  try {
+    console.log(a);
+  }
+  catch(error) {
+    console.log("Error Found");
+  }
+
+//   Types of Errors
+
+  // 1.Syntax Error:-Occurs when JavaScript code has wrong syntax.
+
+  try {
+    eval("var x = ;");
+  }
+  catch(error) {
+    console.log(error.name);
+  }
+
+  // 2.Type Error:- Occurs when a value is used with wrong type.
+
+  try {
+    let num = 10;
+    num.toUpperCase();
+  }
+  catch(error) {
+    console.log(error.name);
+  }
+
+  // Reference Error:-Occurs when variable is not defined.
+
+  try {
+    console.log(data);
+  }
+  catch(error) {
+    console.log(error.name);
+  }
+
+</script>
+
+</body>
+</html>

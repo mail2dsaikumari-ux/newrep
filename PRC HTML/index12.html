@@ -1,0 +1,54 @@
+<!-- ES6 Structures = store and manage data efficiently -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ES6 Data Structures</title>
+</head>
+<body>
+
+<h2>ES6 Data Structures</h2>
+
+<script>
+
+// Map → key-value pairs (any type of key)
+let map = new Map();
+
+map.set("name", "Sai");
+map.set(1, "Number Key");
+
+console.log(map.get("name"));
+console.log(map.has(1));
+
+
+// Set → stores unique values
+let set = new Set();
+
+set.add(1);
+set.add(2);
+set.add(2); // duplicate ignored
+
+console.log(set);
+
+
+// WeakMap → keys must be objects (not iterable)
+let obj = {};
+let weakMap = new WeakMap();
+
+weakMap.set(obj, "Data");
+
+console.log(weakMap.get(obj));
+
+
+// WeakSet → stores objects only (not iterable)
+let obj1 = {};
+let weakSet = new WeakSet();
+
+weakSet.add(obj1);
+
+console.log(weakSet.has(obj1));
+
+</script>
+
+</body>
+</html>

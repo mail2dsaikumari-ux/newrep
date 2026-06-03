@@ -1,0 +1,56 @@
+<!-- // Asynchronous JavaScript → runs tasks without blocking (waits and continues) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Asynchronous JavaScript</title>
+</head>
+<body>
+
+<h2>Asynchronous JavaScript</h2>
+
+<script>
+
+// Callback → function passed into another function
+function getData(callback) {
+  setTimeout(() => {
+    console.log("Data received (Callback)");
+    callback();
+  }, 1000);
+}
+
+getData(() => {
+  console.log("Callback executed");
+});
+
+
+// Promise → handles async result (success or failure)
+let promise = new Promise((resolve, reject) => {
+  let success = true;
+
+  setTimeout(() => {
+    if (success) {
+      resolve("Data received (Promise)");
+    } else {
+      reject("Error");
+    }
+  }, 1000);
+});
+
+promise
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+
+
+// Async & Await → easier way to use promises
+async function fetchData() {
+  let result = await promise;
+  console.log("Async/Await:", result);
+}
+
+fetchData();
+
+</script>
+
+</body>
+</html>

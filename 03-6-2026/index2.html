@@ -1,0 +1,133 @@
+<!-- 3.Build a Rock-Paper-Scissors Game using JavaScript Logic, Event Handling, and Responsive UI. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Rock Paper Scissors</title>
+
+<style>
+
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#f2f2f2;
+}
+
+.container{
+  margin-top:100px;
+}
+
+button{
+  padding:15px 25px;
+  margin:10px;
+  background:blue;
+  color:white;
+  border:none;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+#result{
+  margin-top:20px;
+  font-size:22px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="container">
+
+<h1>Rock Paper Scissors</h1>
+
+<button onclick="play('Rock')">
+Rock
+</button>
+
+<button onclick="play('Paper')">
+Paper
+</button>
+
+<button onclick="play('Scissors')">
+Scissors
+</button>
+
+<h2 id="user"></h2>
+
+<h2 id="computer"></h2>
+
+<h2 id="result"></h2>
+
+</main>
+
+<script>
+
+function play(userChoice){
+
+  let choices =
+  ["Rock","Paper","Scissors"];
+
+  let computerChoice =
+  choices[
+  Math.floor(
+  Math.random()*3
+  )
+  ];
+
+  document.getElementById("user")
+  .innerText =
+  "You : " + userChoice;
+
+  document.getElementById("computer")
+  .innerText =
+  "Computer : " +
+  computerChoice;
+
+  let result="";
+
+  if(userChoice===computerChoice){
+
+    result="Draw";
+
+  }
+
+  else if(
+
+  (userChoice==="Rock" &&
+   computerChoice==="Scissors")
+
+   ||
+
+  (userChoice==="Paper" &&
+   computerChoice==="Rock")
+
+   ||
+
+  (userChoice==="Scissors" &&
+   computerChoice==="Paper")
+
+  ){
+
+    result="You Win";
+
+  }
+
+  else{
+
+    result="Computer Wins";
+
+  }
+
+  document.getElementById("result")
+  .innerText =
+  result;
+
+}
+
+</script>
+
+</body>
+</html>

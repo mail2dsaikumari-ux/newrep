@@ -1,0 +1,215 @@
+<!-- Build a JavaScript Functions App using HTML and JavaScript.
+Requirements:
+Create functions using:
+Function Declaration
+Function Expression
+Named Function
+Anonymous Function
+Arrow Function
+Demonstrate:
+Parameters vs Arguments
+Default Parameters
+Rest Parameters
+Scope
+Hoisting
+var vs let vs const
+Closures
+this keyword and binding -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Functions App</title>
+</head>
+
+<body>
+
+  <h1>JavaScript Functions</h1>
+
+  <script>
+
+    /* Function Declaration */
+
+    function greet(name) {
+
+      console.log("Hello " + name);
+
+    }
+
+    greet("Sai");
+
+    /*Function Expression */
+
+    const add = function (a, b) {
+
+      console.log(a + b);
+
+    };
+
+    add(10, 20);
+
+    /*Named Function Expression */
+
+    const message = function showMessage() {
+
+      console.log("Named Function");
+
+    };
+
+    message();
+
+    /*Anonymous Function */
+
+    const test = function () {
+
+      console.log("Anonymous Function");
+
+    };
+
+    test();
+
+    /*Arrow Function */
+
+    const multiply = (a, b) => {
+
+      console.log(a * b);
+
+    };
+
+    multiply(5, 2);
+
+    /*Parameters vs Arguments */
+
+    function student(name, age) {
+
+      console.log(name, age);
+
+    }
+
+    /* Parameters = name, age
+      Arguments = Sai, 26
+    */
+
+    student("Sai", 26);
+
+    /* Default Parameters */
+
+    function welcome(name = "Guest") {
+
+      console.log("Welcome " + name);
+
+    }
+
+    welcome();
+
+    /* Rest Parameters*/
+
+    function total(...numbers) {
+
+      let sum = 0;
+
+      for (let num of numbers) {
+        sum += num;
+      }
+
+      console.log(sum);
+
+    }
+
+    total(1, 2, 3, 4);
+
+    /*Scope*/
+
+    let globalVar = "Global";
+
+    function scopeExample() {
+
+      let localVar = "Local";
+
+      console.log(globalVar);
+
+      console.log(localVar);
+
+    }
+
+    scopeExample();
+
+    /* Hoisting */
+
+    hoist();
+
+    function hoist() {
+
+      console.log("Function Hoisting");
+
+    }
+
+    /* var vs let vs const*/
+
+    var a = 10;
+
+    let b = 20;
+
+    const c = 30;
+
+    console.log(a, b, c);
+
+    /* Closures */
+
+    function outer() {
+
+      let count = 0;
+
+      return function () {
+
+        count++;
+
+        console.log(count);
+
+      };
+
+    }
+
+    const counter = outer();
+
+    counter();
+
+    counter();
+
+    /* this Keyword */
+
+    const person = {
+
+      name: "Sai",
+
+      show: function () {
+
+        console.log(this.name);
+
+      }
+
+    };
+
+    person.show();
+
+    /* Binding */
+
+    const user = {
+      name: "Kumari"
+    };
+
+    function display() {
+
+      console.log(this.name);
+
+    }
+
+    const bindFunction = display.bind(user);
+
+    bindFunction();
+
+  </script>
+
+</body>
+</html>

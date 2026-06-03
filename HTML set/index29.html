@@ -1,0 +1,176 @@
+<!-- Create a stopwatch using React state, JavaScript intervals, CSS styling, and semantic HTML elements. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stopwatch</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    /* Stopwatch Box */
+    .stopwatch{
+      background:white;
+      padding:40px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+      width:300px;
+    }
+
+    /* Heading */
+    h1{
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    /* Time */
+    #time{
+      font-size:40px;
+      font-weight:bold;
+      margin-bottom:20px;
+      color:blue;
+    }
+
+    /* Buttons */
+    button{
+      padding:10px 20px;
+      margin:5px;
+      border:none;
+      background:blue;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main>
+
+    <section class="stopwatch">
+
+      <!-- Heading -->
+      <h1>Stopwatch</h1>
+
+      <!-- Time Display -->
+      <article id="time">
+        00:00:00
+      </article>
+
+      <!-- Buttons -->
+      <button onclick="startWatch()">
+        Start
+      </button>
+
+      <button onclick="stopWatch()">
+        Stop
+      </button>
+
+      <button onclick="resetWatch()">
+        Reset
+      </button>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Variables
+    let seconds = 0;
+    let minutes = 0;
+    let hours = 0;
+
+    let timer = null;
+
+    // Start Function
+    function startWatch(){
+
+      // Prevent Multiple Intervals
+      if(timer !== null){
+        return;
+      }
+
+      // Interval
+      timer = setInterval(function(){
+
+        seconds++;
+
+        // Seconds
+        if(seconds == 60){
+
+          seconds = 0;
+          minutes++;
+
+        }
+
+        // Minutes
+        if(minutes == 60){
+
+          minutes = 0;
+          hours++;
+
+        }
+
+        // Add Zero
+        let h =
+        hours < 10 ? "0" + hours : hours;
+
+        let m =
+        minutes < 10 ? "0" + minutes : minutes;
+
+        let s =
+        seconds < 10 ? "0" + seconds : seconds;
+
+        // Display Time
+        document.getElementById("time")
+        .innerText =
+        h + ":" + m + ":" + s;
+
+      },1000);
+
+    }
+
+    // Stop Function
+    function stopWatch(){
+
+      clearInterval(timer);
+
+      timer = null;
+
+    }
+
+    // Reset Function
+    function resetWatch(){
+
+      clearInterval(timer);
+
+      timer = null;
+
+      seconds = 0;
+      minutes = 0;
+      hours = 0;
+
+      document.getElementById("time")
+      .innerText = "00:00:00";
+
+    }
+
+  </script>
+
+</body>
+</html>
