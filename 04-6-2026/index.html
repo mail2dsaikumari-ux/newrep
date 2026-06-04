@@ -1,0 +1,146 @@
+<!-- Create a number guessing game using React state, JavaScript random numbers, and CSS styling. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Guessing Game</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .box{
+      background:white;
+      width:350px;
+      padding:30px;
+      text-align:center;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    h1{
+      margin-bottom:20px;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      box-sizing:border-box;
+      margin-top:10px;
+    }
+
+    button{
+      padding:10px 20px;
+      margin-top:15px;
+      background:blue;
+      color:white;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    #result{
+      margin-top:20px;
+      font-size:18px;
+      color:green;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main>
+
+    <section class="box">
+
+      <h1>Number Guessing Game</h1>
+
+      <p>
+        Guess a number between 1 and 10
+      </p>
+
+      <input
+        type="number"
+        id="guess"
+        placeholder="Enter Number"
+      >
+
+      <button onclick="checkNumber()">
+
+        Check Number
+
+      </button>
+
+      <article id="result">
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Generate Random Number
+    let randomNumber =
+    Math.floor(
+      Math.random() * 10
+    ) + 1;
+
+    // Check User Guess
+    function checkNumber(){
+
+      let guess =
+      Number(
+        document.getElementById("guess")
+        .value
+      );
+
+      // Correct Guess
+      if(guess === randomNumber){
+
+        document.getElementById("result")
+        .innerHTML =
+
+        "🎉 Correct Guess! <br><br>" +
+
+        "Your Guess : " + guess +
+        "<br>" +
+
+        "Computer Number : " +
+        randomNumber;
+
+      }
+
+      // Wrong Guess
+      else{
+
+        document.getElementById("result")
+        .innerHTML =
+
+        "❌ Wrong Guess <br><br>" +
+
+        "Your Guess : " + guess +
+        "<br>" +
+
+        "Correct Number : " +
+        randomNumber;
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

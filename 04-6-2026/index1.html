@@ -1,0 +1,110 @@
+<!-- Build a calendar application using React Hooks, JavaScript Date object, and CSS Grid. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calendar App</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f2f2f2;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    /* Grid Layout */
+    .calendar{
+      display:grid;
+      grid-template-columns:
+      repeat(7,1fr);
+
+      gap:10px;
+
+      max-width:700px;
+      margin:auto;
+      margin-top:20px;
+    }
+
+    .day{
+      background:white;
+      padding:20px;
+      text-align:center;
+      border-radius:5px;
+      box-shadow:0px 0px 5px gray;
+    }
+
+    .header{
+      background:blue;
+      color:white;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+
+    <h1>Calendar Application</h1>
+
+    <section
+      class="calendar"
+      id="calendar">
+
+    </section>
+
+  </main>
+
+  <script>
+
+    let calendar =
+    document.getElementById("calendar");
+
+    let days = [
+
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+
+    ];
+
+    // Display Day Names
+    days.forEach(function(day){
+
+      calendar.innerHTML +=
+
+      `<div class="day header">
+
+        ${day}
+
+      </div>`;
+
+    });
+
+    // Display Dates
+    for(let i=1;i<=31;i++){
+
+      calendar.innerHTML +=
+
+      `<div class="day">
+
+        ${i}
+
+      </div>`;
+
+    }
+
+  </script>
+
+</body>
+</html>
