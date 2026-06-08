@@ -1,0 +1,101 @@
+<!-- 3 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive form</title>
+
+    <style>
+{
+
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+}
+
+body{
+    background-color: aqua;
+    display:flex;
+}
+        form-container{
+            width: 50px;
+            background:white;
+            padding:15;
+            border: radius 50px;
+            box: shadow 10px;
+        }
+    h1{
+        margin-bottom: 20px;
+    }
+    label{
+        display: block;
+        margin: bottom 50px;
+        font-weight: 100;
+    }
+    input{
+        width:50px;
+        padding:15px;
+        border:10px;
+        border-radius:10px;
+    }
+    input:focus{
+        border-color: aquamarine;
+        outline: 5px;
+        box:10px;
+    }
+    error{
+        color: crimson;
+        font-size: 10px;
+        margin:5px;
+    }
+    button{
+        width: 50px;
+        padding: 10px;
+        background-color: aquamarine;
+        color: blanchedalmond;
+        border:5px;
+        border: radius 15px;
+        cursor:pointer;
+    }
+    @media{max: width 150px;}
+    form container{
+        width: 50px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="form container">
+        <h2>registration form</h2>
+        <form>
+            <div class="form group">
+                <label>full name</label>
+                <input type="text"holder="enter full name">
+                <div class="error">required name</div></div>
+
+                <div class="form group">
+                <label>email</label>
+                <input type="email"holder="enter email">
+                <div class="error">required email</div></div>
+
+                <div class="form group">
+                <label>mobile number</label>
+                <input type="number"holder="enter mobile number">
+                <div class="error">required mobile number</div></div>
+
+                <div class="form group">
+                <label>password</label>
+                <input type="password"holder="enter email">
+                <div class="error">required password</div></div>
+
+                <div class="form group">
+                <label>confirm password</label>
+                <input type="password conformation"holder="enter confirm password">
+                <div class="error">required confirm password</div></div>
+
+                <button type="submit">register</button>
+                </form></div>
+</body>
+</html>

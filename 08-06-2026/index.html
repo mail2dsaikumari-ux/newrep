@@ -1,0 +1,126 @@
+<!-- .Build a modal popup component using React state, JavaScript events, CSS transitions, and semantic HTML. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modal Popup</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    .container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    button{
+      padding:10px 20px;
+      background:blue;
+      color:white;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    /* Overlay */
+    .overlay{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.5);
+
+      display:none;
+    }
+
+    /* Modal */
+    .modal{
+      position:absolute;
+      top:50%;
+      left:50%;
+
+      transform:
+      translate(-50%,-50%);
+
+      background:white;
+      padding:30px;
+      width:300px;
+      text-align:center;
+      border-radius:10px;
+
+      transition:0.3s;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <button onclick="openPopup()">
+
+      Open Popup
+
+    </button>
+
+  </main>
+
+  <!-- Popup -->
+  <section
+    class="overlay"
+    id="popup">
+
+    <article class="modal">
+
+      <h2>
+        Welcome
+      </h2>
+
+      <p>
+        This is a Modal Popup.
+      </p>
+
+      <button
+      onclick="closePopup()">
+
+        Close
+
+      </button>
+
+    </article>
+
+  </section>
+
+  <script>
+
+    // Open Popup
+    function openPopup(){
+
+      document.getElementById("popup")
+      .style.display = "block";
+
+    }
+
+    // Close Popup
+    function closePopup(){
+
+      document.getElementById("popup")
+      .style.display = "none";
+
+    }
+
+  </script>
+
+</body>
+</html>

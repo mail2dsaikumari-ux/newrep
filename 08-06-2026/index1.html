@@ -1,0 +1,198 @@
+<!-- Create a tab switching interface using React Hooks, CSS styling, and JavaScript conditional rendering. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tab Switching Interface</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .container{
+      width:500px;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    /* Tabs */
+    .tabs{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      margin-bottom:20px;
+    }
+
+    button{
+      padding:10px 20px;
+      border:none;
+      background:lightgray;
+      cursor:pointer;
+      border-radius:5px;
+    }
+
+    .active{
+      background:blue;
+      color:white;
+    }
+
+    /* Content */
+    .content{
+      background:#f9f9f9;
+      padding:20px;
+      border-radius:5px;
+      min-height:120px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <h1>Tab Switching Interface</h1>
+
+    <!-- Tabs -->
+    <section class="tabs">
+
+      <button
+        id="homeBtn"
+        class="active"
+        onclick="showTab('home')">
+
+        Home
+
+      </button>
+
+      <button
+        id="aboutBtn"
+        onclick="showTab('about')">
+
+        About
+
+      </button>
+
+      <button
+        id="contactBtn"
+        onclick="showTab('contact')">
+
+        Contact
+
+      </button>
+
+    </section>
+
+    <!-- Content -->
+    <article
+      class="content"
+      id="content">
+
+      <h2>Home</h2>
+
+      <p>
+        Welcome to the Home Page.
+      </p>
+
+    </article>
+
+  </main>
+
+  <script>
+
+    // Show Tab
+    function showTab(tab){
+
+      let content =
+      document.getElementById("content");
+
+      // Remove Active Class
+      document
+      .getElementById("homeBtn")
+      .classList.remove("active");
+
+      document
+      .getElementById("aboutBtn")
+      .classList.remove("active");
+
+      document
+      .getElementById("contactBtn")
+      .classList.remove("active");
+
+      // Conditional Rendering
+      if(tab === "home"){
+
+        content.innerHTML =
+
+        `
+        <h2>Home</h2>
+
+        <p>
+        Welcome to the Home Page.
+        </p>
+        `;
+
+        document
+        .getElementById("homeBtn")
+        .classList.add("active");
+
+      }
+
+      else if(tab === "about"){
+
+        content.innerHTML =
+
+        `
+        <h2>About</h2>
+
+        <p>
+        Learn more about our website.
+        </p>
+        `;
+
+        document
+        .getElementById("aboutBtn")
+        .classList.add("active");
+
+      }
+
+      else{
+
+        content.innerHTML =
+
+        `
+        <h2>Contact</h2>
+
+        <p>
+        Contact us at support@email.com
+        </p>
+        `;
+
+        document
+        .getElementById("contactBtn")
+        .classList.add("active");
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
