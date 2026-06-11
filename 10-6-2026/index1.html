@@ -1,0 +1,142 @@
+<!-- Build an FAQ accordion using React state, JavaScript event handling and CSS. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FAQ Accordion</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .container{
+      width:500px;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    /* Question */
+    .question{
+      background:blue;
+      color:white;
+      padding:15px;
+      margin-top:10px;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    /* Answer */
+    .answer{
+      max-height:0;
+      overflow:hidden;
+      background:#f9f9f9;
+      transition:max-height 0.5s;
+      padding:0 15px;
+    }
+
+    .show{
+      max-height:100px;
+      padding:15px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <main class="container">
+
+    <h1>FAQ Accordion</h1>
+
+    <section>
+
+      <!-- Question 1 -->
+      <div
+      class="question"
+      onclick="toggleAnswer('a1')">
+
+        What is HTML?
+
+      </div>
+
+      <div
+      class="answer"
+      id="a1">
+
+        HTML is used to create web pages.
+
+      </div>
+
+      <!-- Question 2 -->
+      <div
+      class="question"
+      onclick="toggleAnswer('a2')">
+
+        What is CSS?
+
+      </div>
+
+      <div
+      class="answer"
+      id="a2">
+
+        CSS is used for styling web pages.
+
+      </div>
+
+      <!-- Question 3 -->
+      <div
+      class="question"
+      onclick="toggleAnswer('a3')">
+
+        What is React?
+
+      </div>
+
+      <div
+      class="answer"
+      id="a3">
+
+        React is a JavaScript library used
+        to build user interfaces.
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Toggle Answer
+    function toggleAnswer(id){
+
+      let answer =
+      document.getElementById(id);
+
+      answer.classList.toggle(
+      "show"
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>

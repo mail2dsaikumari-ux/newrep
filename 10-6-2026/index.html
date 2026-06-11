@@ -1,0 +1,171 @@
+<!--Create a sticky navbar using semantic HTML, CSS position properties, JavaScript scroll events, and React components. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sticky Navbar</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#f2f2f2;
+    }
+
+    /* Navbar */
+    nav{
+      background:blue;
+      color:white;
+      padding:20px;
+      position:sticky;
+      top:0;
+      transition:0.5s;
+      z-index:1000;
+    }
+
+    ul{
+      list-style:none;
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      margin:0;
+      padding:0;
+    }
+
+    li{
+      cursor:pointer;
+      font-size:20px;
+      font-weight:bold;
+    }
+
+    /* Changes after scrolling */
+    .active{
+      background:red;
+    }
+
+    /* Content */
+    .content{
+      padding:20px;
+    }
+
+    .box{
+      background:white;
+      padding:15px;
+      margin-top:10px;
+      border-radius:5px;
+      box-shadow:0px 0px 5px gray;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <header>
+
+    <nav id="navbar">
+
+      <ul>
+
+        <li>Home</li>
+
+        <li>About</li>
+
+        <li>Services</li>
+
+        <li>Contact</li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+  <!-- Main Content -->
+  <main class="content">
+
+    <h1>Sticky Navbar Example</h1>
+
+    <p>
+      Scroll down and watch the navbar stay at the top.
+      After scrolling 100px, the navbar changes from
+      Blue to Red.
+    </p>
+
+    <section class="box">
+
+      <h2>HTML</h2>
+
+      <p>
+        HTML is used to create webpage structure.
+      </p>
+
+    </section>
+
+    <section class="box">
+
+      <h2>CSS</h2>
+
+      <p>
+        CSS is used for styling webpages.
+      </p>
+
+    </section>
+
+    <section class="box">
+
+      <h2>JavaScript</h2>
+
+      <p>
+        JavaScript adds functionality and interactivity.
+      </p>
+
+    </section>
+
+    <section class="box">
+
+      <h2>React</h2>
+
+      <p>
+        React is used to build UI components.
+      </p>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Select Navbar
+    let navbar =
+    document.getElementById("navbar");
+
+    // Scroll Event
+    window.onscroll =
+    function(){
+
+      if(window.scrollY > 100){
+
+        navbar.classList.add(
+        "active"
+        );
+
+      }
+
+      else{
+
+        navbar.classList.remove(
+        "active"
+        );
+
+      }
+
+    };
+
+  </script>
+
+</body>
+</html>
