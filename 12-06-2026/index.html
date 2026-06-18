@@ -1,0 +1,82 @@
+<!-- 1.Create a notification toast system using React Hooks, JavaScript timers, and CSS. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toast Notification</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      text-align:center;
+      margin-top:100px;
+    }
+
+    button{
+      padding:10px 20px;
+      background:blue;
+      color:white;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    .toast{
+      position:fixed;
+      top:20px;
+      right:20px;
+      background:green;
+      color:white;
+      padding:15px;
+      border-radius:5px;
+      display:none;
+    }
+
+    .show{
+      display:block;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Notification Toast System</h1>
+
+  <button onclick="showToast()">
+
+    Show Notification
+
+  </button>
+
+  <div
+    class="toast"
+    id="toast">
+
+    Notification Sent Successfully
+
+  </div>
+
+  <script>
+
+    function showToast(){
+
+      let toast =
+      document.getElementById("toast");
+
+      toast.classList.add("show");
+
+      setTimeout(function(){
+
+        toast.classList.remove("show");
+
+      },3000);
+
+    }
+
+  </script>
+
+</body>
+</html>

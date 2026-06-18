@@ -1,0 +1,139 @@
+<!-- Build a responsive blog page using semantic HTML, CSS Grid, JavaScript DOM manipulation, and React components. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Blog Page</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    button{
+      display:block;
+      margin:20px auto;
+      padding:10px 20px;
+      background:blue;
+      color:white;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    /* CSS Grid */
+    .blog-container{
+      display:grid;
+      grid-template-columns:
+      repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    /* Blog Card */
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    img{
+      width:100%;
+      height:180px;
+      border-radius:10px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Semantic HTML -->
+  <header>
+
+    <h1>Responsive Blog Page</h1>
+
+  </header>
+
+  <button onclick="addBlog()">
+
+    Add Blog
+
+  </button>
+
+  <main
+    class="blog-container"
+    id="blogs">
+
+    <!-- Blog 1 -->
+    <article class="card">
+
+      <img
+      src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500">
+
+      <h2>HTML Basics</h2>
+
+      <p>
+        Learn the fundamentals of HTML.
+      </p>
+
+    </article>
+
+    <!-- Blog 2 -->
+    <article class="card">
+
+      <img
+      src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500">
+
+      <h2>CSS Grid</h2>
+
+      <p>
+        Build responsive layouts using CSS Grid.
+      </p>
+
+    </article>
+
+  </main>
+
+  <script>
+
+    // DOM Manipulation
+    function addBlog(){
+
+      let blogs =
+      document.getElementById(
+      "blogs"
+      );
+
+      blogs.innerHTML += `
+
+      <article class="card">
+
+        <img
+        src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500">
+
+        <h2>JavaScript</h2>
+
+        <p>
+          JavaScript makes websites interactive.
+        </p>
+
+      </article>
+
+      `;
+
+    }
+
+  </script>
+
+</body>
+</html>

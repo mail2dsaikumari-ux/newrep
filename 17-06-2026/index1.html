@@ -1,0 +1,115 @@
+<!-- Create a polling/voting application using React state management, JavaScript calculations, and CSS charts. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Voting App</title>
+
+<style>
+
+body{
+  font-family:Arial;
+  background:#f2f2f2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.container{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0px 0px 10px gray;
+}
+
+button{
+  padding:10px 20px;
+  margin:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Favorite Language</h1>
+
+<p>
+HTML Votes:
+<span id="html">
+0
+</span>
+</p>
+
+<button onclick="voteHTML()">
+Vote HTML
+</button>
+
+<p>
+CSS Votes:
+<span id="css">
+0
+</span>
+</p>
+
+<button onclick="voteCSS()">
+Vote CSS
+</button>
+
+<p>
+JavaScript Votes:
+<span id="js">
+0
+</span>
+</p>
+
+<button onclick="voteJS()">
+Vote JavaScript
+</button>
+
+</div>
+
+<script>
+
+let htmlVotes = 0;
+let cssVotes = 0;
+let jsVotes = 0;
+
+function voteHTML(){
+
+htmlVotes++;
+
+document.getElementById("html")
+.innerText =
+htmlVotes;
+
+}
+
+function voteCSS(){
+
+cssVotes++;
+
+document.getElementById("css")
+.innerText =
+cssVotes;
+
+}
+
+function voteJS(){
+
+jsVotes++;
+
+document.getElementById("js")
+.innerText =
+jsVotes;
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!-- Build an attendance tracker using React state, JavaScript arrays, local storage, and responsive design. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance Tracker</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      padding:20px;
+    }
+
+    .container{
+      max-width:600px;
+      margin:auto;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    input{
+      width:70%;
+      padding:10px;
+      box-sizing:border-box;
+    }
+
+    button{
+      padding:10px 15px;
+      border:none;
+      background:blue;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+      margin-left:5px;
+    }
+
+    .student{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#f9f9f9;
+      padding:10px;
+      margin-top:10px;
+      border-radius:5px;
+    }
+
+    .present{
+      background:green;
+    }
+
+    .absent{
+      background:red;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h1>Attendance Tracker</h1>
+
+    <!-- Student Input -->
+    <input
+      type="text"
+      id="studentName"
+      placeholder="Enter Student Name"
+    >
+
+    <button onclick="addStudent()">
+      Add Student
+    </button>
+
+    <!-- Student List -->
+    <section id="studentList">
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Array
+    let students =
+    JSON.parse(
+      localStorage.getItem("students")
+    ) || [];
+
+    // Display Students
+    function displayStudents(){
+
+      let list =
+      document.getElementById(
+      "studentList"
+      );
+
+      list.innerHTML = "";
+
+      students.forEach(function(student,index){
+
+        list.innerHTML += `
+
+        <article class="student">
+
+          <span>
+            ${student.name}
+          </span>
+
+          <div>
+
+            <button
+            class="present"
+            onclick="markPresent(${index})">
+
+              Present
+
+            </button>
+
+            <button
+            class="absent"
+            onclick="markAbsent(${index})">
+
+              Absent
+
+            </button>
+
+          </div>
+
+        </article>
+
+        <p>
+          Status :
+          ${student.status}
+        </p>
+
+        `;
+
+      });
+
+    }
+
+    // Add Student
+    function addStudent(){
+
+      let name =
+      document.getElementById(
+      "studentName"
+      ).value;
+
+      if(name !== ""){
+
+        students.push({
+
+          name:name,
+          status:"Not Marked"
+
+        });
+
+        saveData();
+
+        displayStudents();
+
+        document.getElementById(
+        "studentName"
+        ).value = "";
+
+      }
+
+    }
+
+    // Mark Present
+    function markPresent(index){
+
+      students[index].status =
+      "Present";
+
+      saveData();
+
+      displayStudents();
+
+    }
+
+    // Mark Absent
+    function markAbsent(index){
+
+      students[index].status =
+      "Absent";
+
+      saveData();
+
+      displayStudents();
+
+    }
+
+    // Local Storage
+    function saveData(){
+
+      localStorage.setItem(
+      "students",
+      JSON.stringify(students)
+      );
+
+    }
+
+    // Initial Load
+    displayStudents();
+
+  </script>
+
+</body>
+</html>

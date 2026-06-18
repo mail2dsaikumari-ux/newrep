@@ -1,0 +1,216 @@
+<!-- Build a Kanban board(Task Board) using React drag-and-drop, JavaScript events, CSS Grid, and state management -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Board</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    /* Grid Layout */
+    .board{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    /* Columns */
+    .column{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+      min-height:350px;
+    }
+
+    h2{
+      text-align:center;
+    }
+
+    /* Tasks */
+    .task{
+      background:blue;
+      color:white;
+      padding:15px;
+      margin-top:10px;
+      border-radius:5px;
+      cursor:grab;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+
+    <h1>Task Board</h1>
+
+    <section class="board">
+
+      <!-- TO LEARN -->
+
+      <article
+      class="column"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)">
+
+        <h2>TO LEARN</h2>
+
+        <div
+        class="task"
+        id="task1"
+        draggable="true"
+        ondragstart="drag(event)">
+
+          Introduction to React
+          1.What is React?
+          2.Why React?
+          3.Features of React
+
+        </div>
+
+        <div
+        class="task"
+        id="task2"
+        draggable="true"
+        ondragstart="drag(event)">
+
+          Components
+          Types of Components
+           1.Functional Components
+           2.Class Components
+
+        </div>
+
+        <div
+        class="task"
+        id="task3"
+        draggable="true"
+        ondragstart="drag(event)">
+
+          State
+          1.Local State
+          2.State Updates
+          3.State VS Props
+
+        </div>
+
+        <div
+        class="task"
+        id="task4"
+        draggable="true"
+        ondragstart="drag(event)">
+
+          Event Handling
+            Events:
+                1.onClick
+                2.onChange
+                3.onSubmit
+                4.onKeyDown
+                5.onMouseEnter
+
+        </div>
+
+        <div
+        class="task"
+        id="task5"
+        draggable="true"
+        ondragstart="drag(event)">
+
+          React Hooks
+            1.useState
+            2.useEffect
+            3.useRef
+            4.useContext
+            5.useMemo
+            6.useCallback
+            7.Custom Hooks
+
+        </div>
+
+      </article>
+
+      <!-- LEARNING -->
+
+      <article
+      class="column"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)">
+
+        <h2>LEARNING</h2>
+
+      </article>
+
+      <!-- LEARNED -->
+
+      <article
+      class="column"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)">
+
+        <h2>LEARNED</h2>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // Allow Drop
+    function allowDrop(event){
+
+      event.preventDefault();
+
+    }
+
+    // Drag Task
+    function drag(event){
+
+      event.dataTransfer.setData(
+      "text",
+      event.target.id
+      );
+
+    }
+
+    // Drop Task
+    function drop(event){
+
+      event.preventDefault();
+
+      let taskId =
+      event.dataTransfer.getData(
+      "text"
+      );
+
+      let task =
+      document.getElementById(
+      taskId
+      );
+
+      event.currentTarget.appendChild(
+      task
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!-- 2.Create a password strength checker using React forms, JavaScript regex, and CSS styling -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Strength Checker</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .container{
+      background:white;
+      padding:30px;
+      width:350px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      box-sizing:border-box;
+    }
+
+    #result{
+      margin-top:20px;
+      font-size:20px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h1>Password Strength Checker</h1>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter Password"
+      onkeyup="checkPassword()"
+    >
+
+    <h2 id="result">
+
+      Enter Password
+
+    </h2>
+
+  </main>
+
+  <script>
+
+    function checkPassword(){
+
+      let password =
+      document.getElementById("password")
+      .value;
+
+      let result =
+      document.getElementById("result");
+
+      let strongRegex =
+      /^(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
+
+      if(password.length < 6){
+
+        result.innerText =
+        "Weak Password";
+
+        result.style.color =
+        "red";
+
+      }
+
+      else if(
+      strongRegex.test(password)
+      ){
+
+        result.innerText =
+        "Strong Password";
+
+        result.style.color =
+        "green";
+
+      }
+
+      else{
+
+        result.innerText =
+        "Medium Password";
+
+        result.style.color =
+        "orange";
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
+
+<!-- How Password Strength Works
+1.Weak
+Length < 6
+Example:
+123,abc,test
+Output:
+Weak Password
+--------------------------------------
+2.Medium
+Length > 6
+But no Capital Letter
+Example:
+abcdef12
+Output:
+Medium Password
+--------------------------------------
+3.Strong
+At least 8 characters
+Contains:
+✓ Capital Letter
+✓ Number
+Example:
+Sai12345,React2025,Password1
+Output:
+Strong Password -->
