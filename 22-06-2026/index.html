@@ -1,0 +1,167 @@
+<!-- Build a theme customizer using React state, CSS variables, local storage, and JavaScript events. -->
+
+<!--This application allows users to change the background color of the website.
+The selected color is saved using localStorage, so the same color remains even after refreshing the page. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Background Changer</title>
+
+  <style>
+
+    :root{
+      --bgColor:white;
+      --textColor:black;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:var(--bgColor);
+      color:var(--textColor);
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .container{
+      text-align:center;
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    button{
+      padding:10px 20px;
+      margin:10px;
+      border:none;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    .blue{
+      background:blue;
+    }
+
+    .green{
+      background:green;
+    }
+
+    .black{
+      background:black;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h1>Background Changer</h1>
+
+    <p>Select Background Color</p>
+
+    <button
+    class="blue"
+    onclick="blueColor()">
+
+      Blue
+
+    </button>
+
+    <button
+    class="green"
+    onclick="greenColor()">
+
+      Green
+
+    </button>
+
+  </main>
+
+  <script>
+
+    // Load Saved Color
+
+    let savedColor =
+    localStorage.getItem(
+    "bgColor"
+    );
+
+    if(savedColor){
+
+      document.documentElement
+      .style.setProperty(
+      "--bgColor",
+      savedColor
+      );
+
+      if(savedColor === "black"){
+
+        document.documentElement
+        .style.setProperty(
+        "--textColor",
+        "white"
+        );
+
+      }
+
+    }
+
+    // Blue
+
+    function blueColor(){
+
+      document.documentElement
+      .style.setProperty(
+      "--bgColor",
+      "lightblue"
+      );
+
+      document.documentElement
+      .style.setProperty(
+      "--textColor",
+      "black"
+      );
+
+      localStorage.setItem(
+      "bgColor",
+      "lightblue"
+      );
+
+    }
+
+    // Green
+
+    function greenColor(){
+
+      document.documentElement
+      .style.setProperty(
+      "--bgColor",
+      "lightgreen"
+      );
+
+      document.documentElement
+      .style.setProperty(
+      "--textColor",
+      "black"
+      );
+
+      localStorage.setItem(
+      "bgColor",
+      "lightgreen"
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>

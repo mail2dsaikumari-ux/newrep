@@ -1,0 +1,197 @@
+<!--Build a seat booking system using React state management, CSS Grid layout, JavaScript events, and dynamic styling. -->
+
+<!-- The application displays available seats.Green seats are available and red seats are booked.
+When a user clicks a seat, a popup shows:"Seat Booked Successfully"
+The booked seat is added to the Selected Seats list.If the user clicks a booked seat again, a popup shows:"Seat Already Booked" -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seat Booking System</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      text-align:center;
+      padding:20px;
+    }
+
+    h1{
+      color:blue;
+    }
+    
+    /* CSS Grid */
+
+    .seats{
+      display:grid;
+      grid-template-columns:repeat(4,100px);
+      gap:15px;
+      justify-content:center;
+      margin-top:30px;
+    }
+
+    .seat{
+      background:green;
+      color:white;
+      padding:20px;
+      border-radius:5px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .booked{
+      background:red;
+      cursor:not-allowed;
+    }
+
+    .legend{
+      margin-top:20px;
+      font-weight:bold;
+    }
+
+    /* Shows seat color meanings.Adds space above.Makes text bold. */
+
+    .selected{
+      margin-top:30px;
+      background:white;
+      padding:15px;
+      border-radius:10px;
+      width:300px;
+      margin-left:auto;
+      margin-right:auto;
+      box-shadow:0px 0px 10px gray;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Seat Booking System</h1>
+
+  <p>Click a seat to book it</p>
+
+  <div class="legend">
+
+    🟩 Available Seat
+
+    &nbsp;&nbsp;&nbsp;
+
+    🟥 Booked Seat
+
+  </div>
+
+  <!-- Seats -->
+
+  <section
+  class="seats"
+  id="seats">
+
+  </section>
+  <!-- //This section displays all seats. -->
+
+  <!-- Selected Seats -->
+
+  <div class="selected">
+    <!-- //Displays booked seat numbers. -->
+
+    <h2>Selected Seats</h2>
+
+    <p id="selectedSeats">
+
+      None
+
+    </p>
+
+  </div>
+
+  <script>
+
+    let seatNumbers = [
+
+      "A1","A2","A3","A4",
+
+      "B1","B2","B3","B4",
+
+      "C1","C2","C3","C4"
+
+    ];
+    //Stores all seat numbers in an array.
+
+    let selectedSeats = [];
+    //Stores booked seats. 
+
+    let seatsDiv =
+    document.getElementById(
+    "seats"
+    );
+    //Selects the section where seats will be displayed.
+
+    seatNumbers.forEach(function(seat){
+        //Loops through every seat number.
+
+      seatsDiv.innerHTML += `
+      <div
+      class="seat"
+      onclick="bookSeat(this)">
+      ${seat}
+      </div>
+      `;
+      //Creates a seat box for each seat number.
+
+    });
+
+    function bookSeat(seat){
+        //Runs when a seat is clicked.
+        //Click A2 - bookSeat(A2)(it will show)
+
+      if(
+        seat.classList.contains(
+        "booked"
+        )
+      ){
+        //Checks whether the seat is already booked.
+
+        alert(
+        "Seat Already Booked"
+        );
+
+        //Seat Already Booked
+
+      }
+
+      else{
+
+        seat.classList.add(
+        "booked"
+        );
+        //Adds booked class. before:🟩A2 after:🟥A2
+
+        selectedSeats.push(
+        seat.innerText
+        );
+        //Adds booked seat into array.[] to ["A2"]
+
+        document.getElementById(
+        "selectedSeats"
+        ).innerText =
+        selectedSeats.join(", ");
+        //Displays booked seats below.
+
+        alert(
+        seat.innerText +
+        " Booked Successfully"
+        );
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

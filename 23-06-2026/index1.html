@@ -1,0 +1,189 @@
+<!-- Create a student grade calculator using React forms, JavaScript arithmetic operations, CSS styling, and conditional rendering. -->
+
+<!-- The user enters marks for HTML, CSS, and JavaScript.
+When the Calculate button is clicked:
+• Total marks are calculated.
+• Average marks are calculated.
+• Grade is assigned based on the average.
+The result is displayed on the screen. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Grade Calculator</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .container{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+      width:300px;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin-top:10px;
+      box-sizing:border-box;
+    }
+
+    button{
+      margin-top:15px;
+      padding:10px;
+      width:100%;
+      background:blue;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    .result{
+      margin-top:20px;
+      font-weight:bold;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>Student Grade Calculator</h2>
+
+    <input
+    type="number"
+    id="html"
+    placeholder="HTML Marks">
+
+    <input
+    type="number"
+    id="css"
+    placeholder="CSS Marks">
+
+    <input
+    type="number"
+    id="js"
+    placeholder="JavaScript Marks">
+
+    <!-- Allows the user to enter HTML,CSS,JavaScript marks. -->
+
+    <button onclick="calculateGrade()">
+      Calculate
+    </button>
+
+    <!-- When the button is clicked,calculateGrade() function runs. -->
+
+    <div
+    class="result"
+    id="result">
+    </div>
+
+    <!-- Displays Total, Average, and Grade. -->
+
+  </div>
+
+  <script>
+
+    function calculateGrade(){
+
+        // Runs when Calculate button is clicked.
+
+      let html =
+      Number(
+      document.getElementById(
+      "html"
+      ).value);
+
+      let css =
+      Number(
+      document.getElementById(
+      "css"
+      ).value);
+
+      let js =
+      Number(
+      document.getElementById(
+      "js"
+      ).value);
+
+    //   Gets HTML,CSS,JS marks entered by the user.
+
+      let total =
+      html + css + js;
+    //   Adds all subject marks.
+
+      let average =
+      total / 3;
+    //   Divides total marks by 3 subjects.
+
+      let grade;
+    //   Stores the student's grade.
+
+      if(average >= 90){
+
+        grade = "A+";
+
+      }
+
+    //   If average is 90 or more, Grade becomes A+.
+
+      else if(average >= 80){
+
+        grade = "A";
+
+      }
+    //   If average is between 80 and 89,Grade becomes A.
+
+      else if(average >= 70){
+
+        grade = "B";
+
+      }
+    //   If average is between 70 and 79,Grade becomes B.
+
+      else if(average >= 60){
+
+        grade = "C";
+
+      }
+    //   If average is between 60 and 69,Grade becomes C.
+
+      else{
+
+        grade = "Fail";
+
+      }
+    //   If average is below 60,student fails.
+
+      document.getElementById(
+      "result"
+      ).innerHTML =
+    //   Displays the final result on the screen.
+
+      `Total Marks : ${total}
+      <br><br>
+
+      Average : ${average.toFixed(2)}
+      <br><br>
+
+      Grade : ${grade}`;
+
+    }
+
+  </script>
+
+</body>
+</html>

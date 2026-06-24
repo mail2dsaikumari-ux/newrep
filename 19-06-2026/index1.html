@@ -1,0 +1,149 @@
+<!-- Create a markdown previewer using React Hooks, JavaScript string methods, and responsive CSS. -->
+
+<!--The user types markdown symbols (#, **, *) and JavaScript converts them into HTML tags (<h1>, <b>, <i>)
+to display formatted text in the preview area. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Markdown Previewer</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    .container{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    textarea{
+      flex:1;
+      min-width:300px;
+      height:300px;
+      padding:10px;
+    }
+
+    .preview{
+      flex:1;
+      min-width:300px;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Markdown Previewer</h1>
+
+  <div class="container">
+
+    <!-- Input -->
+
+    <textarea
+      id="markdown"
+      placeholder="Type Markdown Here"
+      onkeyup="previewMarkdown()">
+    </textarea>
+
+    <!-- Preview -->
+
+    <div
+      class="preview"
+      id="preview">
+
+      Preview Area
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function previewMarkdown(){
+
+      let text =
+      document.getElementById(
+      "markdown"
+      ).value;
+
+      // String Methods
+
+      text =
+      text.replace(
+      /# (.*)/g,
+      "<h1>$1</h1>"
+      );
+
+      text =
+      text.replace(
+      /\*\*(.*)\*\*/g,
+      "<b>$1</b>"
+      );
+
+      text =
+      text.replace(
+      /\*(.*)\*/g,
+      "<i>$1</i>"
+      );
+
+      document.getElementById(
+      "preview"
+      ).innerHTML =
+      text;
+
+    }
+
+  </script>
+
+</body>
+</html>
+
+<!-- 1. Heading
+User types: # Welcome
+The program sees:
+# and understands this and Made this as heading,So it changes:to # Welcome to <h1>Welcome</h1>
+Output:
+Welcome (big heading)
+
+2. Bold Text
+User types:**HTML**
+The program sees:
+** and understands this and Made this as bold,So it changes:**HTML** to <b>HTML</b>
+Output:
+HTML (Bold)
+
+3. Italic Text
+User types:*CSS*
+The program sees:
+* and understands this and Made this as italic,So it changes:*CSS* to <i>CSS</i>
+Output:
+CSS (Italic)
+
+Example
+You type:
+# Frontend
+**JavaScript**
+*React*
+
+Preview shows:
+Frontend
+JavaScript   ← Bold
+React        ← Italic
+ -->
+
