@@ -1,0 +1,157 @@
+<!-- 1.Create a survey application using React forms, JavaScript validation, CSS styling, and semantic HTML structure. -->
+
+<!-- A Survey Application collects feedback from users through a form.
+Users enter their details and submit their responses. -->
+
+<!-- The user enters Name, Email, and Feedback.
+When the Submit button is clicked, JavaScript validates the form.
+If all fields are filled, the survey is submitted successfully. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Survey Application</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .container{
+      background:white;
+      padding:20px;
+      width:350px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    input,
+    textarea{
+      width:100%;
+      padding:10px;
+      margin-top:10px;
+      box-sizing:border-box;
+    }
+
+    button{
+      width:100%;
+      padding:10px;
+      margin-top:15px;
+      background:blue;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    #message{
+      margin-top:15px;
+      font-weight:bold;
+      color:green;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h2>Survey Form</h2>
+
+    <input
+    type="text"
+    id="name"
+    placeholder="Enter Name">
+    <!-- Allows the user to enter their name. -->
+
+    <input
+    type="email"
+    id="email"
+    placeholder="Enter Email">
+    <!-- Allows the user to enter their email. -->
+
+    <textarea
+    id="feedback"
+    placeholder="Enter Feedback">
+    </textarea>
+    <!-- Allows the user to enter feedback. -->
+
+    <button onclick="submitSurvey()">
+      Submit
+    </button>
+    <!-- When the user clicks Submit,
+         submitSurvey() function runs.-->
+
+    <p id="message"></p>
+    <!-- Displays success message after submission. -->
+
+  </main>
+
+  <script>
+
+    function submitSurvey(){
+    // Runs when Submit button is clicked.
+
+      let name =
+      document.getElementById(
+      "name"
+      ).value;
+    //   Gets the value entered in Name field.
+    //   name = "Sai Kumari"
+
+      let email =
+      document.getElementById(
+      "email"
+      ).value;
+    //   Gets the value entered in Email field.
+    //   email = "sai@gmail.com"
+
+      let feedback =
+      document.getElementById(
+      "feedback"
+      ).value;
+
+    //   Gets the feedback entered by user.
+    //  feedback ="Good Training Program"
+
+      if(
+        name === "" ||
+        email === "" ||
+        feedback === ""
+      ){
+
+        // Checks whether any field is empty.
+
+        alert(
+        "Please Fill All Fields"
+        );
+
+        // Please Fill All Fields
+
+      }
+
+      else{
+
+        document.getElementById(
+        "message"
+        ).innerText =
+
+        "Survey Submitted Successfully";
+        
+        //Displays success message when all fields are filled.
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

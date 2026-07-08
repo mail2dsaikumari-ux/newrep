@@ -1,0 +1,283 @@
+<!--Build a customer feedback application using React state, form validation, CSS Flexbox, and semantic HTML tags. -->
+
+<!-- I developed a Customer Feedback Application where users enter their name, select a product, choose a rating, 
+ and provide feedback. When the Submit button is clicked, JavaScript validates the form. If all fields are filled,
+a new feedback card is created and displayed below the form. Users can also delete any feedback card using the Delete button. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customer Feedback Application</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f2f2f2;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:20px;
+}
+
+.container{
+  width:450px;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0px 0px 10px gray;
+}
+
+h2{
+  text-align:center;
+  color:blue;
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+input,
+select,
+textarea{
+  padding:10px;
+  font-size:16px;
+}
+
+button{
+  padding:10px;
+  background:blue;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+.feedback-card{
+  margin-top:15px;
+  padding:15px;
+  background:#f9f9f9;
+  border-radius:8px;
+  box-shadow:0px 0px 5px lightgray;
+}
+
+.delete{
+  margin-top:10px;
+  background:red;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="container">
+
+<h2>Customer Feedback</h2>
+
+<form>
+
+<input
+type="text"
+id="name"
+placeholder="Customer Name">
+<!-- Allows the customer to enter their name. -->
+
+<select id="product">
+<!-- Allows the customer to select a product. -->
+
+<option value="">Select Product</option>
+
+<option>Laptop</option>
+
+<option>Mobile</option>
+
+<option>Headphones</option>
+
+</select>
+
+<select id="rating">
+<!-- Allows the customer to select a rating. -->
+
+<option value="">Select Rating</option>
+
+<option>⭐ 1</option>
+
+<option>⭐⭐ 2</option>
+
+<option>⭐⭐⭐ 3</option>
+
+<option>⭐⭐⭐⭐ 4</option>
+
+<option>⭐⭐⭐⭐⭐ 5</option>
+
+</select>
+
+<textarea
+id="feedback"
+placeholder="Enter Feedback">
+</textarea>
+
+<!-- Allows the customer to enter feedback. -->
+
+<button
+type="button"
+onclick="submitFeedback()">
+<!-- Runs the submitFeedback() function when clicked. -->
+
+Submit
+
+</button>
+
+</form>
+
+<h3>Submitted Feedback</h3>
+
+<div id="feedbackList">
+</div>
+
+<!-- Displays all submitted feedback below the form. -->
+
+</main>
+
+<script>
+
+function submitFeedback(){
+
+// Runs when the Submit button is clicked.
+
+let name =
+document.getElementById(
+"name"
+).value;
+
+// Gets the customer name entered by the user.
+
+let product =
+document.getElementById(
+"product"
+).value;
+
+// Gets the selected product.
+
+let rating =
+document.getElementById(
+"rating"
+).value;
+
+// Gets the selected rating.
+
+let feedback =
+document.getElementById(
+"feedback"
+).value;
+
+// Gets the feedback entered by the customer.
+
+if(
+name===""||
+product===""||
+rating===""||
+feedback===""){
+
+// Checks whether all fields are filled.
+// Output-Please Fill All Fields,Popup appears.
+
+alert(
+"Please Fill All Fields"
+);
+
+return;
+
+}
+
+let feedbackList =
+document.getElementById(
+"feedbackList"
+);
+
+let card =
+document.createElement(
+"div"
+);
+
+// Creates a new feedback card.
+
+card.className =
+"feedback-card";
+
+// Applies CSS styling to the feedback card.
+
+card.innerHTML=
+
+// Displays customer details inside the feedback card.
+
+`
+
+<p><b>Customer :</b> ${name}</p>
+
+<p><b>Product :</b> ${product}</p>
+
+<p><b>Rating :</b> ${rating}</p>
+
+<p><b>Feedback :</b> ${feedback}</p>
+
+<button
+class="delete"
+onclick="deleteFeedback(this)">
+
+Delete
+
+</button>
+
+`;
+
+feedbackList.appendChild(
+card
+);
+
+// Adds the feedback card below the form.
+
+document.getElementById(
+"name"
+).value="";
+
+// Clears the input fields after submission.
+
+document.getElementById(
+"product"
+).value="";
+
+document.getElementById(
+"rating"
+).value="";
+
+document.getElementById(
+"feedback"
+).value="";
+
+alert(
+"Feedback Submitted Successfully"
+);
+
+// Feedback Submitted Successfully
+
+}
+
+function deleteFeedback(button){
+
+// Runs when the Delete button is clicked.
+
+button.parentElement.remove();
+
+// Removes the selected feedback card from the page.
+
+}
+
+</script>
+
+</body>
+</html>

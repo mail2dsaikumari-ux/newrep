@@ -1,0 +1,191 @@
+<!-- 2.Build a voting system using React Hooks, JavaScript calculations, CSS progress bars, and responsive design. -->
+
+<!-- A Voting System allows users to vote for their favorite option
+and displays vote counts dynamically. -->
+
+<!-- Users click a technology to vote.
+The vote count increases automatically.
+Progress bars update dynamically based on the percentage 
+of votes received. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voting System</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f2f2f2;
+      text-align:center;
+      padding:20px;
+    }
+
+    .box{
+      background:white;
+      padding:20px;
+      margin:20px auto;
+      max-width:500px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    button{
+      padding:10px 20px;
+      margin:5px;
+      background:blue;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    .progress{
+      background:#ddd;
+      height:25px;
+      margin-top:10px;
+    }
+
+    .bar{
+      background:green;
+      height:100%;
+      color:white;
+      line-height:25px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="box">
+
+    <h2>Favorite Technology</h2>
+
+    <button onclick="vote('html')">
+      HTML
+    </button>
+
+    <button onclick="vote('css')">
+      CSS
+    </button>
+
+    <button onclick="vote('js')">
+      JavaScript
+    </button>
+
+    <!-- When HTML,CSS,JavaScript button is clicked,
+     vote function runs. -->
+
+    <h3>HTML Votes</h3>
+
+    <div class="progress">
+      <div
+      class="bar"
+      id="htmlBar">
+      0%
+      </div>
+    </div>
+
+    <h3>CSS Votes</h3>
+
+    <div class="progress">
+      <div
+      class="bar"
+      id="cssBar">
+      0%
+      </div>
+    </div>
+
+    <h3>JavaScript Votes</h3>
+
+    <div class="progress">
+      <div
+      class="bar"
+      id="jsBar">
+      0%
+      </div>
+    </div>
+    <!-- Displays HTML,CSS,JavaScript voting percentage. -->
+  </div>
+
+  <script>
+
+    let htmlVotes = 0;
+    let cssVotes = 0;
+    let jsVotes = 0;
+    // Stores the vote count for each technology.
+
+    function vote(type){
+        // Runs when a vote button is clicked.
+
+      if(type === "html"){
+        htmlVotes++;
+      }
+
+      else if(type === "css"){
+        cssVotes++;
+      }
+
+      else{
+        jsVotes++;
+      }
+    //   Adds 1 vote to HTML,CSS,JavaScript
+
+      let total =
+      htmlVotes +
+      cssVotes +
+      jsVotes;
+    //   Calculates total votes.
+
+    // (htmlVotes/total*100)
+    // Calculates HTML vote percentage.
+
+      document.getElementById(
+      "htmlBar"
+      ).style.width =
+      (htmlVotes/total*100)  
+      + "%";
+    //   Increases progress bar width based on votes.
+
+      document.getElementById(
+      "htmlBar"
+      ).innerText =
+      Math.round(
+      htmlVotes/total*100
+      ) + "%";
+    //   Displays percentage inside progress bar.
+
+      document.getElementById(
+      "cssBar"
+      ).style.width =
+      (cssVotes/total*100)
+      + "%";
+
+      document.getElementById(
+      "cssBar"
+      ).innerText =
+      Math.round(
+      cssVotes/total*100
+      ) + "%";
+
+      document.getElementById(
+      "jsBar"
+      ).style.width =
+      (jsVotes/total*100)
+      + "%";
+
+      document.getElementById(
+      "jsBar"
+      ).innerText =
+      Math.round(
+      jsVotes/total*100
+      ) + "%";
+
+    }
+
+  </script>
+
+</body>
+</html>

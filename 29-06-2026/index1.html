@@ -1,0 +1,221 @@
+<!-- Build a searchable FAQ application using React Hooks, JavaScript filter methods, CSS animations, and semantic HTML. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Searchable FAQ Application</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+padding:20px;
+}
+
+main{
+width:650px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
+}
+
+h2{
+text-align:center;
+color:blue;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-bottom:20px;
+box-sizing:border-box;
+}
+
+article{
+border:1px solid gray;
+margin-bottom:10px;
+border-radius:5px;
+}
+
+.question{
+background:lightblue;
+padding:12px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.answer{
+display:none;
+padding:12px;
+animation:fade 0.5s;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Searchable FAQ Application</h2>
+
+<input
+type="text"
+id="search"
+placeholder="Search Question..."
+onkeyup="searchFAQ()">
+
+<section id="faqList">
+
+</section>
+
+</main>
+
+<script>
+
+let faqs=[
+
+{
+
+question:"How do I create an account?",
+
+answer:"Click the Sign Up button."
+
+},
+
+{
+
+question:"How do I reset my password?",
+
+answer:"Click Forgot Password."
+
+},
+
+{
+
+question:"How do I contact support?",
+
+answer:"Go to Contact Us page."
+
+},
+
+{
+
+question:"What payment methods are accepted?",
+
+answer:"UPI, Credit Card and Debit Card."
+
+},
+
+{
+
+question:"Can I cancel my order?",
+
+answer:"Yes, before shipping."
+
+}
+
+];
+
+function searchFAQ(){
+
+let text=
+
+document.getElementById(
+"search"
+).value.toLowerCase();
+
+let output="";
+
+faqs.forEach(function(item){
+
+if(
+
+item.question
+.toLowerCase()
+.includes(text)
+
+){
+
+output+=`
+
+<article>
+
+<div
+class="question"
+onclick="showAnswer(this)">
+
+${item.question}
+
+</div>
+
+<div
+class="answer">
+
+${item.answer}
+
+</div>
+
+</article>
+
+`;
+
+}
+
+});
+
+document.getElementById(
+"faqList"
+).innerHTML=output;
+
+}
+
+function showAnswer(element){
+
+let answer=
+
+element.nextElementSibling;
+
+if(
+
+answer.style.display=="block"
+
+){
+
+answer.style.display="none";
+
+}
+
+else{
+
+answer.style.display="block";
+
+}
+
+}
+
+searchFAQ();
+
+</script>
+
+</body>
+
+</html>

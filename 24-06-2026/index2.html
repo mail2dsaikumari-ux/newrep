@@ -1,0 +1,262 @@
+<!-- .Create a weekly planner using React Hooks, local storage, JavaScript CRUD operations, and CSS Grid. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weekly Planner</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+      color:blue;
+    }
+
+    .planner{
+      display:grid;
+      grid-template-columns:
+      repeat(auto-fit,minmax(250px,1fr));
+      gap:15px;
+      margin-top:20px;
+    }
+
+    .day{
+      background:white;
+      padding:15px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      box-sizing:border-box;
+    }
+
+    button{
+      margin-top:10px;
+      padding:8px 15px;
+      background:blue;
+      color:white;
+      border:none;
+      cursor:pointer;
+      border-radius:5px;
+    }
+
+    li{
+      margin-top:10px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Weekly Planner</h1>
+
+  <div
+  class="planner"
+  id="planner">
+
+  </div>
+
+  <script>
+
+    let days = [
+
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+
+    ];
+    // Stores all week days in an array.
+
+    let planner =
+    document.getElementById(
+    "planner"
+    );
+    // Selects the planner section where all days will be displayed.
+
+    days.forEach(function(day){
+    // Loops through every day and creates a planner card.
+
+      planner.innerHTML += `
+
+      <div class="day">
+
+        <h3>${day}</h3>
+
+        <input
+        type="text"
+        id="${day}"
+        placeholder="Add Task">
+
+        <button
+        onclick="addTask('${day}')">
+
+        Add
+
+        </button>
+
+        <ul
+        id="${day}List">
+
+        </ul>
+
+      </div>
+
+      `;
+
+    });
+
+    // Load Saved Tasks
+
+    window.onload =
+    function(){
+
+      days.forEach(function(day){
+
+        let savedTasks =
+        JSON.parse(
+        localStorage.getItem(day)
+        ) || [];
+
+        savedTasks.forEach(function(task){
+
+          addTaskToUI(
+          day,
+          task
+          );
+
+        });
+
+      });
+
+    };
+
+    // Add Task
+
+    function addTask(day){
+
+      let input =
+      document.getElementById(
+      day
+      );
+
+      let task =
+      input.value;
+
+      if(task === ""){
+
+        alert(
+        "Enter Task"
+        );
+
+        return;
+
+      }
+
+      addTaskToUI(
+      day,
+      task
+      );
+
+      let tasks =
+      JSON.parse(
+      localStorage.getItem(day)
+      ) || [];
+
+      tasks.push(task);
+
+      localStorage.setItem(
+      day,
+      JSON.stringify(tasks)
+      );
+
+      input.value = "";
+
+    }
+
+    // Display Task
+
+    function addTaskToUI(
+    day,
+    task
+    ){
+
+      let list =
+      document.getElementById(
+      day + "List"
+      );
+
+      let li =
+      document.createElement(
+      "li"
+      );
+
+      li.innerHTML = `
+
+      ${task}
+
+      <button
+      onclick="deleteTask(
+      this,
+      '${day}',
+      '${task}'
+      )">
+
+      Delete
+
+      </button>
+
+      `;
+
+      list.appendChild(li);
+
+    }
+
+    // Delete Task
+
+    function deleteTask(
+    button,
+    day,
+    task
+    ){
+
+      button.parentElement.remove();
+
+      let tasks =
+      JSON.parse(
+      localStorage.getItem(day)
+      ) || [];
+
+      tasks =
+      tasks.filter(function(item){
+
+        return item !== task;
+
+      });
+
+      localStorage.setItem(
+      day,
+      JSON.stringify(tasks)
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!-- Create a responsive admin dashboard using React components, CSS Grid, JavaScript events, and media queries.-->
+
+<!--Created a Responsive Admin Dashboard to display users, orders, products, and reports.used CSS Grid to arrange the dashboard 
+layout and Media Queries to make it work well on mobile and desktop screens.When a user clicks a menu button, JavaScript
+displays the corresponding message on the screen. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Admin Dashboard</title>
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f2f2f2;
+    }
+
+    /* Header */
+
+    .header{
+      background:blue;
+      color:white;
+      text-align:center;
+      padding:15px;
+    }
+
+    /* Dashboard Layout */
+
+    .dashboard{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      min-height:100vh;
+    }
+
+    /* Sidebar */
+
+    .sidebar{
+      background:#222;
+      padding:20px;
+    }
+
+    .sidebar button{
+      width:100%;
+      padding:10px;
+      margin-bottom:10px;
+      background:#444;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    /* Content */
+
+    .content{
+      padding:20px;
+    }
+
+    /* Cards */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow:0px 0px 10px gray;
+    }
+
+    #message{
+      margin-top:20px;
+      font-size:18px;
+      font-weight:bold;
+      color:blue;
+    }
+
+    /* Media Query */
+
+    @media(max-width:768px){
+        /* Makes the dashboard responsive.On smaller screens,Sidebar
+         moves to the top.Cards adjust automatically. */
+
+      .dashboard{
+
+        grid-template-columns:1fr;
+
+      }
+
+      .sidebar{
+
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        justify-content:center;
+
+      }
+
+      .sidebar button{
+
+        width:150px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+
+  <header class="header">
+
+    <h1>Admin Dashboard</h1>
+
+  </header>
+  <!--Displays the title of the dashboard-->
+
+  <!-- Dashboard -->
+
+  <main class="dashboard">
+
+<!-- Creates the main dashboard layout
+It contains the Sidebar and Content sections -->
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+        <!-- Displays the navigation menu -->
+
+      <button onclick="showMessage('Dashboard Opened')">
+
+        Dashboard
+
+      </button>
+
+      <button onclick="showMessage('Users Section Opened')">
+    <!-- When the Users button is clicked,
+        showMessage() function runs. -->
+        Users
+
+      </button>
+
+      <button onclick="showMessage('Orders Section Opened')">
+
+        Orders
+
+      </button>
+
+      <button onclick="showMessage('Products Section Opened')">
+
+        Products
+
+      </button>
+
+      <button onclick="showMessage('Reports Section Opened')">
+
+        Reports
+
+      </button>
+
+    </aside>
+
+    <!-- Content -->
+
+    <section class="content">
+        <!-- Displays dashboard cards and messages -->
+
+      <div class="cards">
+        <!-- Stores all dashboard cards -->
+
+        <div class="card">
+
+          <h2>120</h2>
+
+          <p>Total Users</p>
+
+        </div>
+        <!-- Displays one dashboard card -->
+
+        <div class="card">
+
+          <h2>75</h2>
+
+          <p>Orders</p>
+
+        </div>
+
+        <div class="card">
+
+          <h2>20</h2>
+
+          <p>Products</p>
+
+        </div>
+
+        <div class="card">
+
+          <h2>15</h2>
+
+          <p>Reports</p>
+
+        </div>
+
+      </div>
+
+      <p id="message">
+
+        Click any menu to view details.
+
+      </p>
+      <!-- Displays information after clicking a menu button. -->
+
+    </section>
+
+  </main>
+
+  <script>
+
+    function showMessage(text){
+
+        // Runs whenever a menu button is clicked.
+
+      document.getElementById(
+      "message"
+      ).innerText = text;
+
+    }
+
+  </script>
+
+</body>
+</html>
+
+<!-- The Admin Dashboard displays summary cards for Total Users, Orders, Products, and Reports.When the application loads,
+the dashboard and sidebar menu are displayed.When the user clicks a menu button (Dashboard, Users, Orders, Products, or Reports),
+the corresponding message is displayed below the cards.The dashboard automatically adjusts its layout on smaller screens 
+using media queries, making it responsive for both desktop and mobile devices. -->

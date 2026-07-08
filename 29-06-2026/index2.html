@@ -1,0 +1,236 @@
+<!--Create a product comparison tool using React props, state management, CSS tables, and conditional rendering. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Product Comparison Tool</title>
+
+<style>
+
+body{
+  font-family:Arial;
+  background:#f2f2f2;
+  padding:20px;
+}
+
+.container{
+  max-width:800px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0px 0px 10px gray;
+}
+
+h2{
+  text-align:center;
+  color:blue;
+}
+
+select{
+  padding:10px;
+  margin:10px;
+}
+
+button{
+  padding:10px 20px;
+  background:blue;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+th,td{
+  border:1px solid gray;
+  padding:10px;
+  text-align:center;
+}
+
+th{
+  background:blue;
+  color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Product Comparison Tool</h2>
+
+<select id="product1">
+
+<option>Laptop</option>
+
+<option>Mobile</option>
+
+<option>Headphones</option>
+
+</select>
+
+<select id="product2">
+
+<option>Mobile</option>
+
+<option>Laptop</option>
+
+<option>Headphones</option>
+
+</select>
+
+<button onclick="compareProducts()">
+
+Compare
+
+</button>
+
+<table>
+
+<tr>
+
+<th>Feature</th>
+
+<th id="name1"></th>
+
+<th id="name2"></th>
+
+</tr>
+
+<tbody id="result">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script>
+
+let products={
+
+Laptop:{
+
+Price:"Rs 55,000",
+
+Rating:"⭐⭐⭐⭐⭐",
+
+Storage:"512 GB",
+
+Availability:"Available"
+
+},
+
+Mobile:{
+
+Price:"Rs 20,000",
+
+Rating:"⭐⭐⭐⭐",
+
+Storage:"128 GB",
+
+Availability:"Available"
+
+},
+
+Headphones:{
+
+Price:"Rs 3,000",
+
+Rating:"⭐⭐⭐⭐",
+
+Storage:"N/A",
+
+Availability:"Out of Stock"
+
+}
+
+};
+
+function compareProducts(){
+
+let p1=
+
+document.getElementById(
+"product1"
+).value;
+
+let p2=
+
+document.getElementById(
+"product2"
+).value;
+
+document.getElementById(
+"name1"
+).innerText=p1;
+
+document.getElementById(
+"name2"
+).innerText=p2;
+
+document.getElementById(
+"result"
+).innerHTML=
+
+`
+
+<tr>
+
+<td>Price</td>
+
+<td>${products[p1].Price}</td>
+
+<td>${products[p2].Price}</td>
+
+</tr>
+
+<tr>
+
+<td>Rating</td>
+
+<td>${products[p1].Rating}</td>
+
+<td>${products[p2].Rating}</td>
+
+</tr>
+
+<tr>
+
+<td>Storage</td>
+
+<td>${products[p1].Storage}</td>
+
+<td>${products[p2].Storage}</td>
+
+</tr>
+
+<tr>
+
+<td>Availability</td>
+
+<td>${products[p1].Availability}</td>
+
+<td>${products[p2].Availability}</td>
+
+</tr>
+
+`;
+
+}
+
+compareProducts();
+
+</script>
+
+</body>
+</html>
